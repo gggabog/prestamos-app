@@ -15,7 +15,6 @@
         Cliente
       </label>
       <select multiple formControlName="fk_id_cliente">
-        <option value="">Choose your city</option>
         <option *ngFor="let cliente of clientes" [ngValue]="cliente.id" (change)="changeCustomer($event)">{{cliente.name_customer}}
         </option>
      </select>

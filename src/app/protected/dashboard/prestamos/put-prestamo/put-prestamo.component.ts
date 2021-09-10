@@ -67,7 +67,7 @@ export class PutPrestamoComponent implements OnInit {
   }
 
   get customerName() {
-    return this.putFrom.get('fk_cliente_id');
+    return this.putFrom.get('fk_id_cliente');
   }
 
   changeCustomer(event){
@@ -76,6 +76,7 @@ export class PutPrestamoComponent implements OnInit {
 
 
   put(){
+
      const cliente = JSON.parse(this.customerName.value);
      const monto = this.putFrom.get('amount_loan').value;
      const fechaInicio = this.putFrom.get('date_pay_loan').value;
@@ -91,17 +92,17 @@ export class PutPrestamoComponent implements OnInit {
       interest_rate_loan: [tasa, [Validators.required]]
     });
     //  console.log(this.putFrom.value);
-    // this.dbService.put(this.putFrom.value, 'loans',this.rutaActiva.snapshot.params.id)
-    // .subscribe(resp=>{
-    //   if(resp.message==='Ok'){
-    //     this.toast.fire({
-    //       icon: 'success',
-    //       title: 'Registro Actualizado'
-    //     });
-    //     this.router.navigateByUrl('/dashboard/prestamos');
-    //     window.location.reload();
-    //   }
-    // });
+    this.dbService.put(this.putFrom.value, 'loans',this.rutaActiva.snapshot.params.id)
+    .subscribe(resp=>{
+      if(resp.message==='Ok'){
+        this.toast.fire({
+          icon: 'success',
+          title: 'Registro Actualizado'
+        });
+        this.router.navigateByUrl('/dashboard/prestamos');
+        window.location.reload();
+      }
+    });
   }
 
 }

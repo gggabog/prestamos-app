@@ -79,9 +79,9 @@ export class ShowPrestamoComponent implements OnInit {
             'El registro ha sido eliminado',
             'success'
           );
-          this.router.navigateByUrl('/dashboard/pedidos');
+          this.router.navigateByUrl('/dashboard/prestamos');
           delay(3000);
-          window.location.assign('/dashboard/pedidos');
+          window.location.assign('/dashboard/prestamos');
         }
       });
       } else if (result.isDenied) {
