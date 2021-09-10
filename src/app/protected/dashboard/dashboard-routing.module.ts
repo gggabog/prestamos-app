@@ -19,6 +19,10 @@ const routes: Routes = [
       {
         path: 'auditoria',
         loadChildren: () => import('./auditoria/auditoria.module').then( m => m.AuditoriaPageModule)
+      },
+      {
+        path: 'prestamos',
+        loadChildren: () => import('./prestamos/prestamos.module').then(m => m.PretamosPageModule)
       }
     ]
   },

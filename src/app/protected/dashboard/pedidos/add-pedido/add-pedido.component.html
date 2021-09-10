@@ -14,9 +14,11 @@
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
         Cliente
       </label>
-      <select multiple placeholder="seleccion un cliente" formControlName="fk_id_customer" id="" class="block w-full bg-gray-200 text-gray-700 borde py-3 px-4 mb-3 leading-tight focus:outline-none">
-         <option *ngFor="let cliente of clientes" [ngValue]="cliente.id" (change)="eventChange($event)">{{cliente.name_customer}}</option>
-      </select>
+      <select multiple formControlName="fk_customer_id">
+        <option value="">Choose your city</option>
+        <option *ngFor="let cliente of clientes" [ngValue]="cliente.id" (change)="changeCustomer($event)">{{cliente.name_customer}}
+        </option>
+     </select>
     </div>
   </div>
 

@@ -18,11 +18,10 @@ export class DashboardPage implements OnInit {
     { title: 'Clientes', url: '/dashboard/clientes/', icon: 'people' },
     { title: 'Pedidos', url: '/dashboard/pedidos', icon: 'paper-plane' },
     { title: 'Auditoria', url: '/dashboard/auditoria', icon: 'heart' },
-    { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
+    { title: 'Prestamos', url: '/dashboard/prestamos', icon: 'archive' },
     { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
     { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
   constructor(private router: Router,
               private authService: AuthService,
