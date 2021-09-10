@@ -19,6 +19,10 @@
         <ion-fab-button (click)="delete()" color="light" size="small">
           <ion-icon name="trash-outline"></ion-icon>
        </ion-fab-button>
+
+       <ion-fab-button *ngIf="pedido.status_cash_order === 0" (click)="aceptar()" color="light" size="small">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+     </ion-fab-button>       
       </div>
     </div>
     <div class="flex items-center space-x-3 sm:mt-7 mt-4">
