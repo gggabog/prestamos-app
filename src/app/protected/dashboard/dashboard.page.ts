@@ -19,8 +19,8 @@ export class DashboardPage implements OnInit {
     { title: 'Pedidos', url: '/dashboard/pedidos', icon: 'paper-plane' },
     { title: 'Auditoria', url: '/dashboard/auditoria', icon: 'heart' },
     { title: 'Prestamos', url: '/dashboard/prestamos', icon: 'archive' },
-    { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
+    { title: 'Pagos', url: '/dashboard/pagos', icon: 'trash' },
+    { title: 'Agenda', url: '/dashboard/agenda', icon: 'warning' },
   ];
 
   constructor(private router: Router,

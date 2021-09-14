@@ -23,6 +23,10 @@ const routes: Routes = [
       {
         path: 'prestamos',
         loadChildren: () => import('./prestamos/prestamos.module').then(m => m.PretamosPageModule)
+      },
+      {
+        path: 'pagos',
+        loadChildren: () => import('./pagos/pagos.module').then(m => m.PagosPageModule)
       }
     ]
   },
