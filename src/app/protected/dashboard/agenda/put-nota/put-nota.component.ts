@@ -85,7 +85,6 @@ export class PutNotaComponent implements OnInit {
     this.dbService.get(id,'customer')
     .subscribe(resp=>{
        this.prestamos = resp.prestamos;
-       console.log('prestamos',this.prestamos);
     });
   }
 
