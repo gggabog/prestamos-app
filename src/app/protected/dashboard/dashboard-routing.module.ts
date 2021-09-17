@@ -27,6 +27,10 @@ const routes: Routes = [
       {
         path: 'pagos',
         loadChildren: () => import('./pagos/pagos.module').then(m => m.PagosPageModule)
+      },
+      {
+        path: 'agenda',
+        loadChildren: () => import('./agenda/agenda.module').then(m => m.AgendaPageModule)
       }
     ]
   },
