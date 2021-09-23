@@ -78,8 +78,9 @@ export class ShowPedidoComponent implements OnInit {
             'success'
           );
           this.router.navigateByUrl('/dashboard/pedidos');
-          delay(3000);
-          window.location.assign('/dashboard/pedidos');
+          setTimeout(() => {
+            window.location.assign('/dashboard/pedidos');
+            }, 3000);
         }
       });
       } else if (result.isDenied) {
@@ -107,13 +108,14 @@ export class ShowPedidoComponent implements OnInit {
           title: 'Usuario Actualizado'
         });
         Swal.fire(
-          'Eliminado!',
-          'El registro ha sido eliminado',
+          'Aceptado!',
+          'El pedido ha sido Aceptado',
           'success'
         );
         this.router.navigateByUrl('/dashboard/pedidos');
-        delay(3000);
-        window.location.assign('/dashboard/pedidos');
+        setTimeout(() => {
+          window.location.assign('/dashboard/pedidos');
+          }, 3000);
       }
     });
     } else if (result.isDenied) {

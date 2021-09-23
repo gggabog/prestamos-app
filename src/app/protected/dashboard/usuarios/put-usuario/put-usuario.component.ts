@@ -76,7 +76,9 @@ export class PutUsuarioComponent implements OnInit {
           title: 'Usuario Actualizado'
         });
         this.router.navigateByUrl('/dashboard/usuarios');
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+          }, 3000);;
       }
     });
   }

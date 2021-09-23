@@ -96,7 +96,9 @@ export class AddPrestamoComponent implements OnInit {
           title: 'Registro Agregado'
         });
         this.router.navigateByUrl('/dashboard/pedidos');
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+          }, 3000);;
       }
     });
   }

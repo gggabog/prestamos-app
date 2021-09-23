@@ -109,7 +109,9 @@ export class PutPrestamoComponent implements OnInit {
           title: 'Registro Actualizado'
         });
         this.router.navigateByUrl('/dashboard/prestamos');
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+          }, 3000);;
       }
     });
   }

@@ -81,7 +81,9 @@ export class PutClienteComponent implements OnInit {
           title: 'Usuario Actualizado'
         });
         this.router.navigateByUrl('/dashboard/clientes');
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+          }, 3000);;
       }
     });
   }

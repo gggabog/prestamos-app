@@ -53,13 +53,21 @@ export class AddUsuarioComponent implements OnInit {
     }
     this.dbService.add(this.addFrom.value, 'register')
     .subscribe(resp=>{
+      if(resp.errors){
+        this.toast.fire({
+          icon: 'warning',
+          title: resp.errors.email ? 'Email del usuario incorrecto y/o existe en el sistema' : 'Contraseñas no coinciden'
+        });
+      }
       if(resp.message==='Ok'){
         this.toast.fire({
           icon: 'success',
           title: 'Usuario agregado'
         });
         this.router.navigateByUrl('/dashboard/usuarios');
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+          }, 3000);
       }
     });
   }

@@ -76,8 +76,9 @@ export class ShowUsuarioComponent implements OnInit {
             'success'
           );
           this.router.navigateByUrl('/dashboard/usuarios');
-          delay(3000);
-          window.location.assign('/dashboard/usuarios');
+          setTimeout(() => {
+            window.location.assign('/dashboard/usuarios');
+            }, 3000);
         }
       });
       } else if (result.isDenied) {

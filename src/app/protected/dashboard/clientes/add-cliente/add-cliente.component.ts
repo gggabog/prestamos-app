@@ -53,13 +53,21 @@ export class AddClienteComponent implements OnInit {
     }
     this.dbService.add(this.addFrom.value, 'customer')
     .subscribe(resp=>{
+      if(resp.errors){
+        this.toast.fire({
+          icon: 'warning',
+          title: resp.errors.cedula_customer ? 'Cedula del cliente ya existe en el sistema' : ''
+        });
+      }
       if(resp.message==='Ok'){
         this.toast.fire({
           icon: 'success',
           title: 'Usuario agregado'
         });
         this.router.navigateByUrl('/dashboard/clientes');
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+          }, 3000);;
       }
     });
   }

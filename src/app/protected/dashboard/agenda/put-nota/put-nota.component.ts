@@ -117,7 +117,9 @@ export class PutNotaComponent implements OnInit {
           title: 'Usuario Actualizado'
         });
         this.router.navigateByUrl('/dashboard/agenda');
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+          }, 3000);;
       }
     });
   }

@@ -104,7 +104,9 @@ export class PutPagoComponent implements OnInit {
           title: 'Usuario Actualizado'
         });
         this.router.navigateByUrl('/dashboard/pedidos');
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+          }, 3000);;
       }
     });
   }

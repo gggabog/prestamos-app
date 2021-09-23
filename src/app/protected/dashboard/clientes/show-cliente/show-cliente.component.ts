@@ -81,8 +81,9 @@ export class ShowClienteComponent implements OnInit {
             'success'
           );
           this.router.navigateByUrl('/dashboard/clientes');
-          delay(3000);
-          window.location.assign('/dashboard/clientes');
+          setTimeout(() => {
+            window.location.assign('/dashboard/clientes');
+            }, 3000);
         }
       });
       } else if (result.isDenied) {

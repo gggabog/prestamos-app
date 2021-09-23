@@ -77,13 +77,22 @@ export class AddPedidoComponent implements OnInit {
      });
     this.dbService.add(this.addFrom.value, 'cashorder')
     .subscribe(resp=>{
+      if(resp.errors){
+        console.log(resp.errors);
+        this.toast.fire({
+          icon: 'warning',
+          title: resp.errors.amount_cash_order
+        });
+      }
       if(resp.message==='Ok'){
         this.toast.fire({
           icon: 'success',
           title: 'Registro Agregado'
         });
         this.router.navigateByUrl('/dashboard/pedidos');
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+          }, 3000);;
       }
     });
   }

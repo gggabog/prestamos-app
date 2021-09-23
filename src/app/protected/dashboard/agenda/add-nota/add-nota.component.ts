@@ -101,7 +101,9 @@ export class AddNotaComponent implements OnInit {
           title: 'Registro Agregado'
         });
         this.router.navigateByUrl('/dashboard/agenda');
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+          }, 3000);;
       }
     });
   }
