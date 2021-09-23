@@ -1,19 +1,19 @@
 /* eslint-disable @angular-eslint/no-host-metadata-property */
 /* eslint-disable @typescript-eslint/naming-convention */
-import { dashboardService } from './../../dashboard-service.service';
+import { dashboardService } from '../../dashboard-service.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 @Component({
-  selector: 'app-add-cliente',
+  selector: 'app-add-usuario',
   host: {
     class:'w-full'
   },
-  templateUrl: './add-cliente.component.html',
-  styleUrls: ['./add-cliente.component.scss'],
+  templateUrl: './add-usuario.component.html',
+  styleUrls: ['./add-usuario.component.scss'],
 })
-export class AddClienteComponent implements OnInit {
+export class AddUsuarioComponent implements OnInit {
 
   toast = Swal.mixin({
     toast: true,
@@ -28,13 +28,11 @@ export class AddClienteComponent implements OnInit {
   });
 
   addFrom: FormGroup = this.fb.group({
-    name_customer: ['', [Validators.required]],
-    cedula_customer: ['', [Validators.required]],
-    address_work_customer: ['', [Validators.required]],
-    address_home_customer: ['', [Validators.required]],
-    extra_address_customer: ['', [Validators.required]],
-    cellphone_customer: ['', [Validators.required]],
-    extra_cellphone_customer: ['', [Validators.required]]
+    name: ['', [Validators.required]],
+    email: ['', [Validators.required]],
+    password: ['', [Validators.required]],
+    password_confirmation: ['', [Validators.required]],
+    level: ['', [Validators.required]],
   });
 
   constructor(private fb: FormBuilder,
@@ -42,6 +40,8 @@ export class AddClienteComponent implements OnInit {
               private dbService: dashboardService) { }
 
   ngOnInit() {}
+
+  changeCustomer(){}
 
   add(){
     if(!this.addFrom.valid){
@@ -51,14 +51,14 @@ export class AddClienteComponent implements OnInit {
       });
       return;
     }
-    this.dbService.add(this.addFrom.value, 'customer')
+    this.dbService.add(this.addFrom.value, 'register')
     .subscribe(resp=>{
       if(resp.message==='Ok'){
         this.toast.fire({
           icon: 'success',
           title: 'Usuario agregado'
         });
-        this.router.navigateByUrl('/dashboard/clientes');
+        this.router.navigateByUrl('/dashboard/usuarios');
         window.location.reload();
       }
     });

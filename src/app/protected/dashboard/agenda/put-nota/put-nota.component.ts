@@ -38,7 +38,7 @@ export class PutNotaComponent implements OnInit {
     type_note: ['', [Validators.required]],
   });
 
-  pago: any;
+  nota: any;
 
 
   constructor(private fb: FormBuilder,
@@ -51,6 +51,7 @@ export class PutNotaComponent implements OnInit {
     .subscribe(resp=>{
       console.log(this.rutaActiva.snapshot.params.id);
       console.log(resp.nota);
+      this.nota = resp.nota.id;
        this.putFrom = this.fb.group({
         id_fk_customer: [resp.nota.id_fk_customer, [Validators.required]],
         id_fk_loan: [resp.nota.id_fk_loan, [Validators.required]],
@@ -76,7 +77,7 @@ export class PutNotaComponent implements OnInit {
     return this.putFrom.get('id_fk_customer');
   }
 
-  changeCustomer(event){;
+  changeCustomer(){;
     this.getPrestamos(this.putFrom.get('id_fk_customer').value);
     console.log(this.putFrom.get('id_fk_customer').value);
   }
@@ -90,6 +91,13 @@ export class PutNotaComponent implements OnInit {
 
 
   put(){
+    if(!this.putFrom.valid){
+      this.toast.fire({
+        icon: 'warning',
+        title: 'Datos Ingresados - Invalido y/o vacios'
+      });
+      return;
+    }
     const prestamo = JSON.parse(this.loanId.value);
      const cliente = JSON.parse(this.customerId.value);
      const nota = this.putFrom.get('note').value;

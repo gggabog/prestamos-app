@@ -54,7 +54,8 @@ export class AddNotaComponent implements OnInit {
     return this.addFrom.get('id_fk_customer');
   }
 
-  changeCustomer(event){;
+  changeCustomer(){;
+    console.log(this.addFrom.get('id_fk_customer').value);
     this.getPrestamos(this.addFrom.get('id_fk_customer').value);
   }
 
@@ -72,10 +73,16 @@ export class AddNotaComponent implements OnInit {
        console.log(this.clientes);
      });
  }
- eventChange(event){}
 
 
   add(){
+    if(!this.addFrom.valid){
+      this.toast.fire({
+        icon: 'warning',
+        title: 'Datos Ingresados - Invalido y/o vacios'
+      });
+      return;
+    }
      const prestamo = JSON.parse(this.loanId.value);
      const cliente = JSON.parse(this.customerId.value);
      const nota = this.addFrom.get('note').value;

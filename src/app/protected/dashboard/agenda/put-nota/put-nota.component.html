@@ -1,55 +1,47 @@
+<ion-content class="flex overflow-x-hidden h-full w-full" color="light">
 
-
-<ion-button class="ion-margin" color="light" routerLink="/dashboard/agenda">Atras</ion-button>
-<form  [formGroup]="putFrom" (ngSubmit)="put()" class="m-10 w-full max-w-lg">
-  <div class="flex flex-wrap mx-3 mb-6">
-
-    <div class="w-full md:w-1/2 px-3">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-        Cliente
-      </label>
-      <select formControlName="id_fk_customer" (change)="changeCustomer($event)">
-        <option value="">Escoge...</option>
-        <option *ngFor="let cliente of clientes" [ngValue]="cliente.id">{{cliente.name_customer}}
-        </option>
-     </select>
+  <form [formGroup]="putFrom" (ngSubmit)="put()" class="ion-margin">
+    <div class="flex justify-between">
+      <ion-button class="ion-margin" color="light" routerLink="/dashboard/agenda/show/{{nota}}" >Atras</ion-button>
+      <ion-button class="ion-margin" type="submit">
+        Actualizar
+      </ion-button>
     </div>
 
-    <div *ngIf="prestamos !== null && prestamos !== ['']" class="w-full md:w-1/2 px-3">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-        Prestamo
-      </label>
-      <select formControlName="id_fk_loan">
-        <option value="">Escoge...</option>
-        <option *ngFor="let prestamo of prestamos" [ngValue]="prestamo.id">prestamo numero: #{{prestamo.id}}
-        </option>
-     </select>
-    </div>
 
-    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-        Nota
-      </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text"
-      formControlName="note">
-    </div>
+    <ion-item>
+      <ion-label>Cliente</ion-label>
+      <ion-select formControlName="id_fk_customer" (ionChange)="changeCustomer()" okText="Okay" cancelText="Dismiss">
+        <ion-select-option >Selecciona...</ion-select-option>
+        <ion-select-option *ngFor="let cliente of clientes" [value]="cliente.id">{{cliente.name_customer}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
 
-    <div class="w-full md:w-1/2 px-3">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
-        Tipo
-      </label>
-      <select formControlName="type_note">
-        <option value="">Escoge...</option>
-        <option [ngValue]="1">Precaucion</option>
-        <option [ngValue]="2">Urgente</option>
-        <option [ngValue]="3">Riesgo</option>
-     </select>
-    </div>
-    
-  </div>
+    <ion-item>
+      <ion-label>Prestamo</ion-label>
+      <ion-select formControlName="id_fk_loan" (change)="changeCustomer()" okText="Okay" cancelText="Dismiss">
+        <ion-select-option value="brown">Selecciona...</ion-select-option>
+        <ion-select-option *ngFor="let prestamo of prestamos" [value]="prestamo.id">prestamo numero: #{{prestamo.id}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
 
-  <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
-    Agregar
-  </button>
-</form>
+      <ion-item>
+        <ion-label position="floating">Nota</ion-label>
+        <ion-input formControlName="note" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Tipo</ion-label>
+        <ion-select formControlName="type_note" (change)="changeCustomer()" okText="Okay" cancelText="Dismiss">
+          <ion-select-option value="brown">Selecciona...</ion-select-option>
+          <ion-select-option [value]="1">Precaucion</ion-select-option>
+        <ion-select-option [value]="2">Urgente</ion-select-option>
+        <ion-select-option [value]="3">Riesgo</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+  </form>
+  </ion-content>
 

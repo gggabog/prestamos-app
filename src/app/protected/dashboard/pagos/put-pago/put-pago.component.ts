@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-put-pago',
   host: {
@@ -38,6 +39,7 @@ export class PutPagoComponent implements OnInit {
   });
 
   pago: any;
+  pipe = new DatePipe('en-US');
 
 
   constructor(private fb: FormBuilder,
@@ -50,6 +52,7 @@ export class PutPagoComponent implements OnInit {
     .subscribe(resp=>{
       console.log(this.rutaActiva.snapshot.params.id);
       console.log(resp.pago);
+      this.pago = resp.pago[0].id;
        this.putFrom = this.fb.group({
         amount_payment: [resp.pago[0].amount_payment, [Validators.required]],
         fk_id_loan: [resp.pago[0].fk_id_loan, [Validators.required]],
@@ -67,20 +70,29 @@ export class PutPagoComponent implements OnInit {
     return this.putFrom.get('fk_id_loan');
   }
 
-  changeCustomer(event){
+  changeCustomer(){
     console.log(event);
   }
 
 
   put(){
+    if(!this.putFrom.valid){
+      this.toast.fire({
+        icon: 'warning',
+        title: 'Datos Ingresados - Invalido y/o vacios'
+      });
+      return;
+    }
     const prestamo = JSON.parse(this.loanId.value);
      const monto = this.putFrom.get('amount_payment').value;
      const fecha = this.putFrom.get('date_payment').value;
      const serial = this.putFrom.get('serial_payment').value;
+     const newDate = this.pipe.transform(fecha, 'YYYY-LL-d');
+     console.log('fecha', newDate);
      this.putFrom = this.fb.group({
       fk_id_loan: [prestamo, [Validators.required]],
       amount_payment: [monto, [Validators.required]],
-      date_payment: [fecha, [Validators.required]],
+      date_payment: [newDate, [Validators.required]],
     serial_payment: [serial, [Validators.required]],
      });
     //  console.log(this.putFrom.value);

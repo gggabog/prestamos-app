@@ -1,5 +1,5 @@
 import { AuthService } from './../../auth/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 
@@ -8,24 +8,18 @@ import { MenuController } from '@ionic/angular';
   templateUrl: './dashboard.page.html',
   styleUrls: ['./dashboard.page.scss'],
 })
-export class DashboardPage implements OnInit {
+export class DashboardPage implements OnInit, OnDestroy {
 
   get usuario(){
     return this.authService.user;
   }
 
-  public appPages = [
-    { title: 'Clientes', url: '/dashboard/clientes/', icon: 'people' },
-    { title: 'Pedidos', url: '/dashboard/pedidos', icon: 'paper-plane' },
-    { title: 'Auditoria', url: '/dashboard/auditoria', icon: 'heart' },
-    { title: 'Prestamos', url: '/dashboard/prestamos', icon: 'archive' },
-    { title: 'Pagos', url: '/dashboard/pagos', icon: 'trash' },
-    { title: 'Agenda', url: '/dashboard/agenda', icon: 'warning' },
-  ];
+  public appPages = [];
+
 
   constructor(private router: Router,
-              private authService: AuthService,
-              private menu: MenuController) { }
+    private authService: AuthService,
+    private menu: MenuController) { }
 
   openFirst() {
     this.menu.enable(true, 'first');
@@ -42,11 +36,55 @@ export class DashboardPage implements OnInit {
   }
 
   ngOnInit() {
+    this.appPages = [];
+    this.authService.nivel()
+    .subscribe(resp=>{
+      console.log(resp,'00000000000000000000000000000');
+      const usuario = resp.user.level;
+      switch (usuario) {
+        case 'admin':
+          this.appPages = [
+            { title: 'Inicio', url: '/dashboard/inicio/', icon: 'home' },
+            { title: 'Clientes', url: '/dashboard/clientes/', icon: 'people' },
+            { title: 'Pedidos', url: '/dashboard/pedidos', icon: 'git-pull-request' },
+            { title: 'Prestamos', url: '/dashboard/prestamos', icon: 'ticket' },
+            { title: 'Pagos', url: '/dashboard/pagos', icon: 'cash' },
+            { title: 'Agenda', url: '/dashboard/agenda', icon: 'calendar' },
+            { title: 'Usuarios', url: '/dashboard/usuarios', icon: 'people' },
+            { title: 'Auditoria', url: '/dashboard/auditoria', icon: 'footsteps' },
+          ];
+          break;
+        case 'prestamista':
+          this.appPages = [
+            { title: 'Inicio', url: '/dashboard/inicio/', icon: 'home' },
+            { title: 'Clientes', url: '/dashboard/clientes/', icon: 'people' },
+            { title: 'Pedidos', url: '/dashboard/pedidos', icon: 'git-pull-request' },
+            { title: 'Prestamos', url: '/dashboard/prestamos', icon: 'ticket' },
+            { title: 'Pagos', url: '/dashboard/pagos', icon: 'cash' },
+            { title: 'Agenda', url: '/dashboard/agenda', icon: 'calendar' },
+          ];
+          break;
+        case 'secretaria' :
+          this.appPages = [
+            { title: 'Inicio', url: '/dashboard/inicio/', icon: 'home' },
+            { title: 'Clientes', url: '/dashboard/clientes/', icon: 'people' },
+            { title: 'Pedidos', url: '/dashboard/pedidos', icon: 'git-pull-request' },
+            { title: 'Pagos', url: '/dashboard/pagos', icon: 'cash' },
+          ];
+          break;
+        default:
+          break;
+      }
+    });
+  }
+  ngOnDestroy(){
+    console.log();
+    this.appPages = [];
   }
 
   logout(){
     this.authService.logout();
-    this.router.navigateByUrl('');
+    this.router.navigate(['']);
   }
 
 }

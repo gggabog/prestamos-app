@@ -1,3 +1,4 @@
+import { InicioComponent } from './Inicio/inicio.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -8,6 +9,10 @@ const routes: Routes = [
     path: '',
     component: DashboardPage,
     children:[
+      {
+        path: 'inicio',
+        component: InicioComponent,
+      },
       {
         path: 'clientes',
         loadChildren: () => import('./clientes/clientes.module').then( m => m.ClientesPageModule)
@@ -31,6 +36,14 @@ const routes: Routes = [
       {
         path: 'agenda',
         loadChildren: () => import('./agenda/agenda.module').then(m => m.AgendaPageModule)
+      },
+      {
+        path: 'usuarios',
+        loadChildren: () => import('./usuarios/usuarios.module').then(m => m.UsuriosPageModule)
+      },
+      {
+        path: '**',
+        redirectTo: 'inicio'
       }
     ]
   },

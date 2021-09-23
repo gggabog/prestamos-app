@@ -47,7 +47,7 @@ export class AddPedidoComponent implements OnInit {
     return this.addFrom.get('fk_customer_id');
   }
 
-  changeCustomer(event){
+  changeCustomer(){
     console.log(event);
   }
 
@@ -59,10 +59,16 @@ export class AddPedidoComponent implements OnInit {
     });
 
  }
- eventChange(event){}
 
 
   add(){
+    if(!this.addFrom.valid){
+      this.toast.fire({
+        icon: 'warning',
+        title: 'Datos Ingresados - Invalido y/o vacios'
+      });
+      return;
+    }
      const cliente = JSON.parse(this.customerName.value);
      const monto = this.addFrom.get('amount_cash_order').value;
      this.addFrom = this.fb.group({

@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 /* eslint-disable @angular-eslint/no-host-metadata-property */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { dashboardService } from './../../dashboard-service.service';
@@ -29,6 +30,7 @@ export class PutPrestamoComponent implements OnInit {
   });
 
   clientes = [];
+  pipe = new DatePipe('en-US');
 
   putFrom: FormGroup = this.fb.group({
     amount_loan: ['', [Validators.required]],
@@ -51,6 +53,7 @@ export class PutPrestamoComponent implements OnInit {
     .subscribe(resp=>{
       console.log(this.rutaActiva.snapshot.params.id);
       console.log(resp.prestamo);
+      this.prestamo = resp.prestamo.id;
        this.putFrom = this.fb.group({
         amount_loan: [resp.prestamo.amount_loan, [Validators.required]],
         fk_id_cliente: [resp.prestamo.fk_id_cliente, [Validators.required]],
@@ -70,25 +73,31 @@ export class PutPrestamoComponent implements OnInit {
     return this.putFrom.get('fk_id_cliente');
   }
 
-  changeCustomer(event){
+  changeCustomer(){
     console.log(event);
   }
 
 
   put(){
-
+    if(!this.putFrom.valid){
+      this.toast.fire({
+        icon: 'warning',
+        title: 'Datos Ingresados - Invalido y/o vacios'
+      });
+      return;
+    }
      const cliente = JSON.parse(this.customerName.value);
      const monto = this.putFrom.get('amount_loan').value;
      const fechaInicio = this.putFrom.get('date_pay_loan').value;
      const fechaPago = this.putFrom.get('date_start_loan').value;
+     const newDate1 = this.pipe.transform(fechaInicio, 'YYYY-LL-d');
+     const newDate2 = this.pipe.transform(fechaPago, 'YYYY-LL-d');
      const tasa = this.putFrom.get('interest_rate_loan').value;
-    //  console.log('exit');
-    //  console.log(cliente);
      this.putFrom = this.fb.group({
       amount_loan: [monto, [Validators.required]],
       fk_id_cliente: [cliente, [Validators.required]],
-      date_start_loan: [fechaInicio, [Validators.required]],
-      date_pay_loan: [fechaPago, [Validators.required]],
+      date_start_loan: [newDate1, [Validators.required]],
+      date_pay_loan: [newDate2, [Validators.required]],
       interest_rate_loan: [tasa, [Validators.required]]
     });
     //  console.log(this.putFrom.value);
