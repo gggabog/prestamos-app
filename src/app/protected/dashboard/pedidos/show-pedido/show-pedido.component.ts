@@ -80,7 +80,7 @@ export class ShowPedidoComponent implements OnInit {
           this.router.navigateByUrl('/dashboard/pedidos');
           setTimeout(() => {
             window.location.assign('/dashboard/pedidos');
-            }, 3000);
+            }, 2000);
         }
       });
       } else if (result.isDenied) {
@@ -118,7 +118,7 @@ export class ShowPedidoComponent implements OnInit {
         this.router.navigateByUrl('/dashboard/pedidos');
         setTimeout(() => {
           window.location.assign('/dashboard/pedidos');
-          }, 3000);
+          }, 2000);
       }
     });
     } else if (result.isDenied) {
@@ -129,7 +129,7 @@ export class ShowPedidoComponent implements OnInit {
           this.router.navigateByUrl('/dashboard/pedidos');
         setTimeout(() => {
           window.location.assign('/dashboard/pedidos');
-          }, 3000);
+          }, 2000);
         }
       });
     }

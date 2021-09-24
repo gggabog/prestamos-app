@@ -81,7 +81,7 @@ export class ShowNotaComponent implements OnInit {
           this.router.navigateByUrl('/dashboard/agenda');
           setTimeout(() => {
             window.location.assign('/dashboard/agenda');
-            }, 3000);
+            }, 2000);
         }
       });
       } else if (result.isDenied) {

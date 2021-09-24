@@ -103,7 +103,7 @@ export class AddPagoComponent implements OnInit {
         this.router.navigateByUrl('/dashboard/pagos');
         setTimeout(() => {
           window.location.reload();
-          }, 3000);;
+          }, 2000);;
       }
     });
   }

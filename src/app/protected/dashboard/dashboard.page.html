@@ -1,6 +1,7 @@
   <ion-app color="light">
     <ion-split-pane contentId="main-content" color="light">
-      <ion-menu class="lg:w-1/5 bg-gray-200" contentId="main-content" type="overlay">
+      
+      <ion-menu menuId="end" class="lg:w-1/5 bg-gray-200" contentId="main-content" type="overlay">
         <ion-content color="light">
           <ion-list style="padding: 0px !important;" id="inbox-list" class="bg-gray-200">
             
@@ -29,7 +30,18 @@
           <ion-button expand="block" class="h-8 rounded-md shadow text-white" (click)="logout()"><ion-icon name="arrow-undo-circle-outline" class="mr-2"></ion-icon> Salir</ion-button>
         </ion-content>
       </ion-menu>
-      <ion-router-outlet id="main-content"></ion-router-outlet>
+      
+       
+        
+           <ion-button fill="clear" color="dark" (click)="openEnd()" class="buttonOverlay lg:hidden">
+             <ion-icon slot="icon-only" name="menu"></ion-icon>
+             <div class="ml-4">{{ component }}</div>
+           </ion-button>
+       
+       
+      
+      
+      <ion-router-outlet id="main-content" class="mt-10 lg:mt-0"></ion-router-outlet>
     </ion-split-pane>
   </ion-app>
 

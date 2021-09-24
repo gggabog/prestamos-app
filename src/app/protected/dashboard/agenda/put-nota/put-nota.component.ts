@@ -119,7 +119,7 @@ export class PutNotaComponent implements OnInit {
         this.router.navigateByUrl('/dashboard/agenda');
         setTimeout(() => {
           window.location.reload();
-          }, 3000);;
+          }, 2000);
       }
     });
   }

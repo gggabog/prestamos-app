@@ -83,7 +83,7 @@ export class PutClienteComponent implements OnInit {
         this.router.navigateByUrl('/dashboard/clientes');
         setTimeout(() => {
           window.location.reload();
-          }, 3000);;
+          }, 2000);;
       }
     });
   }

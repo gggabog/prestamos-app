@@ -67,7 +67,7 @@ export class AddUsuarioComponent implements OnInit {
         this.router.navigateByUrl('/dashboard/usuarios');
         setTimeout(() => {
           window.location.reload();
-          }, 3000);
+          }, 2000);
       }
     });
   }

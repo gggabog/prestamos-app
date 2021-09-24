@@ -80,7 +80,7 @@ export class ShowPagoComponent implements OnInit {
           this.router.navigateByUrl('/dashboard/pagos');
           setTimeout(() => {
             window.location.assign('/dashboard/pagos');
-            }, 3000);
+            }, 2000);
         }
       });
       } else if (result.isDenied) {

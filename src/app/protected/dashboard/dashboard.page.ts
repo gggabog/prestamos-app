@@ -1,6 +1,6 @@
 import { AuthService } from './../../auth/auth.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 
 @Component({
@@ -16,11 +16,22 @@ export class DashboardPage implements OnInit, OnDestroy {
 
   public appPages = [];
 
-
+  event$;
+  component;
   constructor(private router: Router,
     private authService: AuthService,
     private menu: MenuController) {
       this.appPages = [];
+      this.component = this.router.url.split('/')[2];
+      this.event$=
+                router.events
+                    .subscribe(
+                      (event) => {
+                        if(event instanceof NavigationStart) {
+                          console.log(event.url);
+                          this.component = event.url.split('/')[2];
+                        }
+                      });
     }
 
   openFirst() {
@@ -29,7 +40,8 @@ export class DashboardPage implements OnInit, OnDestroy {
   }
 
   openEnd() {
-    this.menu.open('end');
+    this.menu.enable(true, 'end');
+    this.menu.toggle();
   }
 
   openCustom() {

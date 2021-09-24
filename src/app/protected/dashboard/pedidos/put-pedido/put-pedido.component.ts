@@ -94,7 +94,7 @@ export class PutPedidoComponent implements OnInit {
         this.router.navigateByUrl('/dashboard/pedidos');
         setTimeout(() => {
           window.location.reload();
-          }, 3000);;
+          }, 2000);;
       }
     });
   }

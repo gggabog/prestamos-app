@@ -111,7 +111,7 @@ export class PutPrestamoComponent implements OnInit {
         this.router.navigateByUrl('/dashboard/prestamos');
         setTimeout(() => {
           window.location.reload();
-          }, 3000);;
+          }, 2000);;
       }
     });
   }

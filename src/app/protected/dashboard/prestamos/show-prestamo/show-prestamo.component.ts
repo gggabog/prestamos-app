@@ -82,7 +82,7 @@ export class ShowPrestamoComponent implements OnInit {
           this.router.navigateByUrl('/dashboard/prestamos');
           setTimeout(() => {
             window.location.assign('/dashboard/prestamos');
-            }, 3000);
+            }, 2000);
         }
       });
       } else if (result.isDenied) {
