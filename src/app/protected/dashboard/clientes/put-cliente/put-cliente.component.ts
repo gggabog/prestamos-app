@@ -69,7 +69,7 @@ export class PutClienteComponent implements OnInit {
     if(!this.putFrom.valid){
       this.toast.fire({
         icon: 'warning',
-        title: 'Datos Ingresados - Invalido y/o vacios'
+        title: 'Datos Ingresados - Invalidos y/o vacios'
       });
       return;
     }
@@ -78,7 +78,7 @@ export class PutClienteComponent implements OnInit {
       if(resp.message==='Ok'){
         this.toast.fire({
           icon: 'success',
-          title: 'Usuario Actualizado'
+          title: 'Cliente Actualizado'
         });
         this.router.navigateByUrl('/dashboard/clientes');
         setTimeout(() => {

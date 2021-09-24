@@ -45,7 +45,7 @@
       </div> -->
       <!-- fin div paginacion top -->
     </div>
-    <table class="w-full text-left">
+    <table class="w-full text-left" *ngIf="prestamos.length !== 0; else elseBlock">
       <thead>
         <tr class="text-gray-400">
           <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Estado</th>
@@ -80,9 +80,19 @@
             </div>
           </td>
         </tr>
-
       </tbody>
     </table>
+    <ng-template #elseBlock> 
+    <ion-card >
+      <ion-card-header>
+        <ion-card-subtitle>Este cliente no posee préstamos</ion-card-subtitle>
+        <ion-card-title>¡Sin Préstamos!</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Por favor, ingresa un préstamo para mostrar datos.
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
     <!-- footer -->
     <!-- <div class="flex w-full mt-5 space-x-2 justify-end">
       <button class="inline-flex items-center h-8 w-8 justify-center text-gray-400 rounded-md shadow border border-gray-200 dark:border-gray-800 leading-none">

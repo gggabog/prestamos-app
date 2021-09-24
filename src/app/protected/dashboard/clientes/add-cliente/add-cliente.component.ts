@@ -34,7 +34,7 @@ export class AddClienteComponent implements OnInit {
     address_home_customer: ['', [Validators.required]],
     extra_address_customer: ['', [Validators.required]],
     cellphone_customer: ['', [Validators.required]],
-    extra_cellphone_customer: ['', [Validators.required]]
+    extra_cellphone_customer: ['', [Validators.required]],
   });
 
   constructor(private fb: FormBuilder,
@@ -47,7 +47,7 @@ export class AddClienteComponent implements OnInit {
     if(!this.addFrom.valid){
       this.toast.fire({
         icon: 'warning',
-        title: 'Datos Ingresados - Invalido y/o vacios'
+        title: 'Datos Ingresados - Invalidos y/o vacios'
       });
       return;
     }
@@ -62,7 +62,7 @@ export class AddClienteComponent implements OnInit {
       if(resp.message==='Ok'){
         this.toast.fire({
           icon: 'success',
-          title: 'Usuario agregado'
+          title: 'Cliente agregado'
         });
         this.router.navigateByUrl('/dashboard/clientes');
         setTimeout(() => {

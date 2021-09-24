@@ -70,7 +70,7 @@ export class AddPrestamoComponent implements OnInit {
     if(!this.addFrom.valid){
       this.toast.fire({
         icon: 'warning',
-        title: 'Datos Ingresados - Invalido y/o vacios'
+        title: 'Datos Ingresados - Invalidos y/o vacios'
       });
       return;
     }
@@ -95,7 +95,7 @@ export class AddPrestamoComponent implements OnInit {
           icon: 'success',
           title: 'Registro Agregado'
         });
-        this.router.navigateByUrl('/dashboard/pedidos');
+        this.router.navigateByUrl('/dashboard/prestamos');
         setTimeout(() => {
           window.location.reload();
           }, 3000);;

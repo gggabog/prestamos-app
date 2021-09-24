@@ -51,6 +51,7 @@ export class ShowClienteComponent implements OnInit {
   getCliente(id){
     this.dbService.get(id, 'customer')
     .subscribe(resp=>{
+      console.log(resp);
       this.cliente = resp.cliente;
       this.prestamos = resp.prestamos;
     });

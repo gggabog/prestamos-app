@@ -79,7 +79,7 @@ export class PutPagoComponent implements OnInit {
     if(!this.putFrom.valid){
       this.toast.fire({
         icon: 'warning',
-        title: 'Datos Ingresados - Invalido y/o vacios'
+        title: 'Datos Ingresados - Invalidos y/o vacios'
       });
       return;
     }

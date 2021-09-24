@@ -30,7 +30,8 @@ export class AddPedidoComponent implements OnInit {
 
   addFrom: FormGroup = this.fb.group({
     amount_cash_order: ['', [Validators.required]],
-    fk_customer_id: ['', [Validators.required]]
+    fk_customer_id: ['', [Validators.required]],
+    status_cash_order: [0, [Validators.required]]
   });
 
   clientes = [];
@@ -65,7 +66,7 @@ export class AddPedidoComponent implements OnInit {
     if(!this.addFrom.valid){
       this.toast.fire({
         icon: 'warning',
-        title: 'Datos Ingresados - Invalido y/o vacios'
+        title: 'Datos Ingresados - Invalidos y/o vacios'
       });
       return;
     }
@@ -74,6 +75,7 @@ export class AddPedidoComponent implements OnInit {
      this.addFrom = this.fb.group({
       fk_customer_id: [cliente, [Validators.required]],
       amount_cash_order: [monto, [Validators.required]],
+      status_cash_order: [0, [Validators.required]]
      });
     this.dbService.add(this.addFrom.value, 'cashorder')
     .subscribe(resp=>{
