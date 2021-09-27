@@ -15,7 +15,7 @@
 
     <ion-item>
       <ion-label>Préstamo</ion-label>
-      <ion-select formControlName="fk_id_loan" (ionChange)="changeCustomer()" okText="Okay" cancelText="Dismiss">
+      <ion-select formControlName="fk_id_loan" (ionChange)="changeCustomer()" okText="Seleccionar" cancelText="Cancelar">
         <ion-select-option value="brown">Selecciona...</ion-select-option>
         <ion-select-option *ngFor="let prestamo of prestamos" [value]="prestamo.id">préstamo #{{prestamo.id}}
         </ion-select-option>

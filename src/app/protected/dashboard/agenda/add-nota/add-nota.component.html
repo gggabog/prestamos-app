@@ -11,7 +11,7 @@
 
     <ion-item>
       <ion-label>Cliente</ion-label>
-      <ion-select formControlName="id_fk_customer" (ionChange)="changeCustomer()" okText="Okay" cancelText="Dismiss">
+      <ion-select formControlName="id_fk_customer" (ionChange)="changeCustomer()" okText="Seleccionar" cancelText="Cancelar">
         <ion-select-option >Selecciona...</ion-select-option>
         <ion-select-option *ngFor="let cliente of clientes" [value]="cliente.id">{{cliente.name_customer}}
         </ion-select-option>
@@ -20,7 +20,7 @@
 
     <ion-item>
       <ion-label>Préstamo</ion-label>
-      <ion-select formControlName="id_fk_loan" (change)="changeCustomer()" okText="Okay" cancelText="Dismiss">
+      <ion-select formControlName="id_fk_loan" (change)="changeCustomer()" okText="Seleccionar" cancelText="Cancelar">
         <ion-select-option value="brown">Selecciona...</ion-select-option>
         <ion-select-option *ngFor="let prestamo of prestamos" [value]="prestamo.id">prestamo numero: #{{prestamo.id}}
         </ion-select-option>
@@ -34,7 +34,7 @@
 
       <ion-item>
         <ion-label>Tipo</ion-label>
-        <ion-select formControlName="type_note" (change)="changeCustomer()" okText="Okay" cancelText="Dismiss">
+        <ion-select formControlName="type_note" (change)="changeCustomer()" okText="Seleccionar" cancelText="Cancelar">
           <ion-select-option value="brown">Selecciona...</ion-select-option>
           <ion-select-option [value]="1">Precaucion</ion-select-option>
         <ion-select-option [value]="2">Urgente</ion-select-option>
