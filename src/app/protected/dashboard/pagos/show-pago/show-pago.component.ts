@@ -74,7 +74,7 @@ export class ShowPagoComponent implements OnInit {
           });
           Swal.fire(
             'Eliminado!',
-            'El registro ha sido eliminado',
+            'El pago ha sido eliminado',
             'success'
           );
           this.router.navigateByUrl('/dashboard/pagos');

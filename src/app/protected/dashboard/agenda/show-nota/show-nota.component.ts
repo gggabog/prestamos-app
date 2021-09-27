@@ -75,7 +75,7 @@ export class ShowNotaComponent implements OnInit {
           });
           Swal.fire(
             'Eliminado!',
-            'El registro ha sido eliminado',
+            'La nota ha sido eliminada',
             'success'
           );
           this.router.navigateByUrl('/dashboard/agenda');

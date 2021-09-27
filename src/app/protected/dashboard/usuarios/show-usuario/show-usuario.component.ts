@@ -72,7 +72,7 @@ export class ShowUsuarioComponent implements OnInit {
           });
           Swal.fire(
             'Eliminado!',
-            'El registro ha sido eliminado',
+            'El usuario ha sido eliminado',
             'success'
           );
           this.router.navigateByUrl('/dashboard/usuarios');

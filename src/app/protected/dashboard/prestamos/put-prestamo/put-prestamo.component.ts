@@ -103,10 +103,17 @@ export class PutPrestamoComponent implements OnInit {
     //  console.log(this.putFrom.value);
     this.dbService.put(this.putFrom.value, 'loans',this.rutaActiva.snapshot.params.id)
     .subscribe(resp=>{
+      if(resp.errors){
+        console.log(resp.errors);
+        this.toast.fire({
+          icon: 'warning',
+          title: JSON.stringify(resp.errors).replace(/[.*+\-?^${}()|[\]\\]/g,' ')
+        });
+      }
       if(resp.message==='Ok'){
         this.toast.fire({
           icon: 'success',
-          title: 'Registro Actualizado'
+          title: 'Prestamo Actualizado'
         });
         this.router.navigateByUrl('/dashboard/prestamos');
         setTimeout(() => {

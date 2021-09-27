@@ -74,7 +74,7 @@ export class AuthService {
     localStorage.removeItem('access_token');
     setTimeout(() => {
           window.location.reload();
-          }, 2000);;
+          }, 2000);
   }
 
 }

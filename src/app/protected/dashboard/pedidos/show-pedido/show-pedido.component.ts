@@ -70,11 +70,11 @@ export class ShowPedidoComponent implements OnInit {
         if(resp.message==='Ok'){
           this.toast.fire({
             icon: 'success',
-            title: 'Usuario Actualizado'
+            title: 'Pedido Actualizado'
           });
           Swal.fire(
             'Eliminado!',
-            'El registro ha sido eliminado',
+            'El pedido ha sido eliminado',
             'success'
           );
           this.router.navigateByUrl('/dashboard/pedidos');

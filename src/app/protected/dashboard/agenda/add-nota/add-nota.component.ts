@@ -96,14 +96,21 @@ export class AddNotaComponent implements OnInit {
     this.dbService.add(this.addFrom.value, 'diary')
     .subscribe(resp=>{
       if(resp.message==='Ok'){
+        if(resp.errors){
+          console.log(resp.errors);
+          this.toast.fire({
+            icon: 'warning',
+            title: JSON.stringify(resp.errors).replace(/[.*+\-?^${}()|[\]\\]/g,' ')
+          });
+        }
         this.toast.fire({
           icon: 'success',
-          title: 'Registro Agregado'
+          title: 'Nota Agregada'
         });
         this.router.navigateByUrl('/dashboard/agenda');
         setTimeout(() => {
           window.location.reload();
-          }, 2000);;
+          }, 2000);
       }
     });
   }

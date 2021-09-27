@@ -83,13 +83,13 @@ export class AddPedidoComponent implements OnInit {
         console.log(resp.errors);
         this.toast.fire({
           icon: 'warning',
-          title: resp.errors.amount_cash_order
+          title: JSON.stringify(resp.errors).replace(/[.*+\-?^${}()|[\]\\]/g,' ')
         });
       }
       if(resp.message==='Ok'){
         this.toast.fire({
           icon: 'success',
-          title: 'Registro Agregado'
+          title: 'Pedido Agregado'
         });
         this.router.navigateByUrl('/dashboard/pedidos');
         setTimeout(() => {

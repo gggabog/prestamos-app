@@ -74,11 +74,11 @@ export class ShowClienteComponent implements OnInit {
         if(resp.message==='Ok'){
           this.toast.fire({
             icon: 'success',
-            title: 'Usuario Actualizado'
+            title: 'Cliente Actualizado'
           });
           Swal.fire(
             'Eliminado!',
-            'El registro ha sido eliminado',
+            'El cliente ha sido eliminado',
             'success'
           );
           this.router.navigateByUrl('/dashboard/clientes');

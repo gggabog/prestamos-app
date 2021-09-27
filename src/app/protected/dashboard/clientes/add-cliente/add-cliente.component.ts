@@ -56,13 +56,14 @@ export class AddClienteComponent implements OnInit {
       if(resp.errors){
         this.toast.fire({
           icon: 'warning',
-          title: resp.errors.cedula_customer ? 'Cedula del cliente ya existe en el sistema' : ''
+          title: resp.errors.cedula_customer ? 'Cedula del cliente ya existe en el sistema'
+          : JSON.stringify(resp.errors).replace(/[.*+\-?^${}()|[\]\\]/g,' ')
         });
       }
       if(resp.message==='Ok'){
         this.toast.fire({
           icon: 'success',
-          title: 'Cliente agregado'
+          title: 'Cliente Agregado'
         });
         this.router.navigateByUrl('/dashboard/clientes');
         setTimeout(() => {

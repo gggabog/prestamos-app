@@ -75,6 +75,13 @@ export class PutClienteComponent implements OnInit {
     }
     this.dbService.put(this.putFrom.value, 'customer',this.rutaActiva.snapshot.params.id)
     .subscribe(resp=>{
+      if(resp.errors){
+        this.toast.fire({
+          icon: 'warning',
+          title: resp.errors.cedula_customer ? 'Cedula del cliente ya existe en el sistema'
+          : JSON.stringify(resp.errors).replace(/[.*+\-?^${}()|[\]\\]/g,' ')
+        });
+      }
       if(resp.message==='Ok'){
         this.toast.fire({
           icon: 'success',

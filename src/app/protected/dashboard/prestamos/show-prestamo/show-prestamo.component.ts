@@ -76,7 +76,7 @@ export class ShowPrestamoComponent implements OnInit {
           });
           Swal.fire(
             'Eliminado!',
-            'El registro ha sido eliminado',
+            'El Préstamo ha sido eliminado',
             'success'
           );
           this.router.navigateByUrl('/dashboard/prestamos');
