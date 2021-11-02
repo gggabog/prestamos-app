@@ -11,6 +11,7 @@ export interface auth {
 }
 
 export interface Usuario {
+  id?:  number;
   name: string;
   email: string;
   level: string;

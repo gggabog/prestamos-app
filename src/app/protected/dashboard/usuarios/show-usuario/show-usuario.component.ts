@@ -1,3 +1,4 @@
+import { Usuario } from './../../../../auth/interfaces/interfaceAuth';
 /* eslint-disable @angular-eslint/no-host-metadata-property */
 import { dashboardService } from '../../dashboard-service.service';
 import { Component, OnInit } from '@angular/core';
@@ -28,7 +29,7 @@ export class ShowUsuarioComponent implements OnInit {
     }
   });
 
-  public usuario = [];
+  public usuario: Usuario;
   public prestamos = [];
   public montoPrestado;
   public dtOptions: DataTables.Settings = {};

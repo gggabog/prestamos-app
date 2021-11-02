@@ -1,3 +1,4 @@
+import { Pago, Prestamo } from './../../interfaces/clienteInterface';
 /* eslint-disable @angular-eslint/no-host-metadata-property */
 import { dashboardService } from '../../dashboard-service.service';
 import { Component, OnInit } from '@angular/core';
@@ -28,8 +29,8 @@ export class ShowPagoComponent implements OnInit {
     }
   });
 
-  public pago = [];
-  public prestamo = [];
+  public pago: Pago;
+  public prestamo: Prestamo;
   public montoPrestado;
   public dtOptions: DataTables.Settings = {};
   constructor(private rutaActiva: ActivatedRoute,

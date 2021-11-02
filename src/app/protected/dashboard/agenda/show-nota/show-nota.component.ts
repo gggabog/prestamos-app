@@ -1,3 +1,4 @@
+import { Prestamo, ClienteElement, Nota } from './../../interfaces/clienteInterface';
 /* eslint-disable @angular-eslint/no-host-metadata-property */
 import { dashboardService } from '../../dashboard-service.service';
 import { Component, OnInit } from '@angular/core';
@@ -28,9 +29,9 @@ export class ShowNotaComponent implements OnInit {
     }
   });
 
-  public nota = [];
-  public cliente = [];
-  public prestamo = [];
+  public nota: Nota;
+  public cliente: ClienteElement;
+  public prestamo: Prestamo;
   public dtOptions: DataTables.Settings = {};
   constructor(private rutaActiva: ActivatedRoute,
               private dbService: dashboardService,

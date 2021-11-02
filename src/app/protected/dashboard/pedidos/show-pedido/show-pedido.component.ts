@@ -1,3 +1,4 @@
+import { ClienteElement, Pedido } from './../../interfaces/clienteInterface';
 /* eslint-disable @angular-eslint/no-host-metadata-property */
 import { dashboardService } from '../../dashboard-service.service';
 import { Component, OnInit } from '@angular/core';
@@ -28,8 +29,8 @@ export class ShowPedidoComponent implements OnInit {
     }
   });
 
-  public pedido = [];
-  public cliente = [];
+  public pedido: Pedido;
+  public cliente: ClienteElement;
   public montoPrestado;
   public dtOptions: DataTables.Settings = {};
   constructor(private rutaActiva: ActivatedRoute,

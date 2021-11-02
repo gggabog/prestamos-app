@@ -58,6 +58,7 @@ export class PutUsuarioComponent implements OnInit {
       });
     });
   }
+  changeCustomer(){}
 
 
   put(){

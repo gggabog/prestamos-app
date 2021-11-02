@@ -1,3 +1,4 @@
+import { Prestamo, Cliente, ClienteElement } from './../../interfaces/clienteInterface';
 /* eslint-disable @angular-eslint/no-host-metadata-property */
 import { dashboardService } from './../../dashboard-service.service';
 import { Component, OnInit } from '@angular/core';
@@ -28,8 +29,8 @@ export class ShowPrestamoComponent implements OnInit {
     }
   });
 
-  public prestamo = [];
-  public cliente = [];
+  public prestamo: Prestamo;
+  public cliente: ClienteElement;
   public pagos = [];
   public montoPrestado;
   public dtOptions: DataTables.Settings = {};
