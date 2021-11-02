@@ -29,8 +29,8 @@ export class ShowPagoComponent implements OnInit {
     }
   });
 
-  public pago: Pago;
-  public prestamo: Prestamo;
+  public pago: any = [];
+  public prestamo: any = [];
   public montoPrestado;
   public dtOptions: DataTables.Settings = {};
   constructor(private rutaActiva: ActivatedRoute,

@@ -5,14 +5,14 @@
     <div class="flex w-full items-center">
       <div class="flex items-center text-3xl text-gray-900 dark:text-white">
         <img src="/assets/icon/user.png" class="w-12 mr-4 rounded-full" alt="profile" />
-        {{cliente.name_customer}}
+        {{cliente?.name_customer}}
       </div>
       <div class="ml-auto sm:flex items-center justify-end">
         <!-- <div class="text-right">
           <div class="text-xs text-gray-400 dark:text-gray-400">Dinero Prestado:</div>
           <div class="text-gray-900 text-lg dark:text-white"> {{montoPrestado}} </div>
         </div> -->
-        <ion-fab-button routerLink="/dashboard/pedidos/put/{{pedido.id}}" color="light" size="small">
+        <ion-fab-button routerLink="/dashboard/pedidos/put/{{pedido?.id}}" color="light" size="small">
           <ion-icon name="create-outline"></ion-icon>
        </ion-fab-button>
 
@@ -20,7 +20,7 @@
           <ion-icon name="trash-outline"></ion-icon>
        </ion-fab-button>
 
-       <ion-fab-button *ngIf="pedido.status_cash_order === 0" (click)="aceptar()" color="light" size="small">
+       <ion-fab-button *ngIf="pedido?.status_cash_order === 0" (click)="aceptar()" color="light" size="small">
         <ion-icon name="checkmark-circle-outline"></ion-icon>
      </ion-fab-button>
       </div>
@@ -41,12 +41,12 @@
     <ion-card>
       <ion-card-header>
         <ion-card-subtitle>Datos del pedido</ion-card-subtitle>
-        <ion-card-title>Pedido # {{pedido.id}} </ion-card-title>
+        <ion-card-title>Pedido # {{pedido?.id}} </ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <div class="w-full text-left">
-          <h1>Monto del pedido: {{ pedido.amount_cash_order }}</h1>
-          <h1>Estatus: {{ pedido.status_cash_order === 0 ? 'En proceso...' : '' }}{{pedido.status_cash_order === 1 ? 'Aceptado' : '' }}{{pedido.status_cash_order === 2 ? 'Negado' : '' }}</h1>
+          <h1>Monto del pedido: {{ pedido?.amount_cash_order }}</h1>
+          <h1>Estatus: {{ pedido.status_cash_order === 0 ? 'En proceso...' : '' }}{{pedido?.status_cash_order === 1 ? 'Aceptado' : '' }}{{pedido.status_cash_order === 2 ? 'Negado' : '' }}</h1>
         </div>
       </ion-card-content>
     </ion-card>

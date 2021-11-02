@@ -5,14 +5,14 @@
     <div class="flex w-full items-center">
       <div class="flex items-center text-3xl text-gray-900 dark:text-white">
         <img src="/assets/icon/user.png" class="w-12 mr-4 rounded-full" alt="profile" />
-        <a routerLink="/dashboard/clientes/show/{{cliente.id}}" class="hover:text-indigo-500">{{cliente.name_customer}}</a>
+        <a routerLink="/dashboard/clientes/show/{{cliente?.id}}" class="hover:text-indigo-500">{{cliente.name_customer}}</a>
       </div>
       <div class="ml-auto sm:flex items-center justify-end">
         <!-- <div class="text-right">
           <div class="text-xs text-gray-400 dark:text-gray-400">Dinero Prestado:</div>
           <div class="text-gray-900 text-lg dark:text-white"> {{montoPrestado}} </div>
         </div> -->
-        <ion-fab-button  routerLink="/dashboard/prestamos/put/{{prestamo.id}}" color="light" size="small">
+        <ion-fab-button  routerLink="/dashboard/prestamos/put/{{prestamo?.id}}" color="light" size="small">
           <ion-icon name="create-outline"></ion-icon>
        </ion-fab-button>
 

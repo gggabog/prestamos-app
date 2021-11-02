@@ -29,7 +29,7 @@ export class ShowUsuarioComponent implements OnInit {
     }
   });
 
-  public usuario: Usuario;
+  public usuario: any = [];
   public prestamos = [];
   public montoPrestado;
   public dtOptions: DataTables.Settings = {};

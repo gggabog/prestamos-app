@@ -29,7 +29,7 @@ export class ShowPedidoComponent implements OnInit {
     }
   });
 
-  public pedido: Pedido;
+  public pedido: any = [];
   public cliente: ClienteElement;
   public montoPrestado;
   public dtOptions: DataTables.Settings = {};

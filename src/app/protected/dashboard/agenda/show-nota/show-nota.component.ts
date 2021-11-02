@@ -29,9 +29,9 @@ export class ShowNotaComponent implements OnInit {
     }
   });
 
-  public nota: Nota;
-  public cliente: ClienteElement;
-  public prestamo: Prestamo;
+  public nota: any = [];
+  public cliente: any = [];
+  public prestamo: any = [];
   public dtOptions: DataTables.Settings = {};
   constructor(private rutaActiva: ActivatedRoute,
               private dbService: dashboardService,

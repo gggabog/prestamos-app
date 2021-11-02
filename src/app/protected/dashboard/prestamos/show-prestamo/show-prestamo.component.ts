@@ -29,8 +29,8 @@ export class ShowPrestamoComponent implements OnInit {
     }
   });
 
-  public prestamo: Prestamo;
-  public cliente: ClienteElement;
+  public prestamo: any = [];
+  public cliente: any = [];
   public pagos = [];
   public montoPrestado;
   public dtOptions: DataTables.Settings = {};
