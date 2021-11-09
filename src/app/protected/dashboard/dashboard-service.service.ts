@@ -1,6 +1,6 @@
 import { Cliente, ClienteElement, Clientes } from './interfaces/clienteInterface';
 import { environment } from './../../../environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable no-underscore-dangle */
 import { catchError, map, tap } from 'rxjs/operators';
@@ -8,6 +8,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
+import { saveAs } from 'file-saver';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,20 @@ export class dashboardService {
     );
   }
 
+  getTables(ruta){
+    const url = `${this.baseUrl}/${ruta}`;
+    const headers = new HttpHeaders()
+    .set('Authorization','Bearer '+localStorage.getItem('access_token')||'');
+    return this.http.get<any>(url, {headers}).pipe(
+      tap(resp=>{
+        if (resp) {
+          return resp;
+          }
+        }
+      )
+    );
+  }
+
   get(id,ruta){
     const url = `${this.baseUrl}/${ruta}/${id}`;
     const headers = new HttpHeaders()
@@ -54,6 +69,7 @@ export class dashboardService {
       )
     );
   }
+
   add(body,ruta){
     const url = `${this.baseUrl}/${ruta}`;
     const headers = new HttpHeaders()
@@ -114,5 +130,28 @@ export class dashboardService {
       })
     );
   }
-}
 
+  public downloadPDF(ruta): any {
+    const mediaType = 'application/pdf';
+    const url = `${this.baseUrl}/${ruta}`;
+    this.http.post(url, {location: 'report.pdf'}, { responseType: 'blob' }).subscribe(
+        (response) => {
+            const blob = new Blob([response], { type: mediaType });
+            saveAs(blob, ruta === 'pdfPayments' ? 'pagos.pdf' : 'prestamos.pdf');
+        },
+        e => { throwError(e); }
+    );
+}
+ public invoice(id,ruta): any{
+  const mediaType = 'application/pdf';
+  const url = `${this.baseUrl}/${ruta}/${id}`;
+  this.http.post(url, {location: 'invoice.pdf'}, { responseType: 'blob' }).subscribe(
+      (response) => {
+          const blob = new Blob([response], { type: mediaType });
+          saveAs(blob, 'factura_'+id+'.pdf');
+      },
+      e => { throwError(e); }
+  );
+ }
+
+}

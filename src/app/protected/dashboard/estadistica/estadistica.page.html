@@ -1,0 +1,58 @@
+<ion-content>
+  <div class="container mx-auto px-4 sm:px-8">
+    <div>
+      <h2 class="text-2xl font-semibold leading-tight my-10">Estadistica</h2>
+    </div>
+    <div
+        class="inline-block min-w-full shadow-md rounded-lg overflow-hidden"
+      >
+      <ion-grid>PRESTAMOS</ion-grid>
+      <ion-grid class="ion-margin">
+        <ion-row>
+          <ion-col>S.No</ion-col>
+          <ion-col>Nombre del cliente</ion-col>
+          <ion-col>Monto</ion-col>
+          <ion-col>Serial</ion-col>
+          <ion-col>Fecha de pago</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let prestamo of prestamos; index as i">
+          <ion-col>{{ i + 1 }}</ion-col>
+          <ion-col>{{ prestamo.name_customer }}</ion-col>
+          <ion-col>{{ prestamo.amount_loan }}</ion-col>
+          <ion-col>{{ prestamo.interest_rate_loan }}</ion-col>
+          <ion-col>{{ prestamo.date_start_loan }}</ion-col>
+        </ion-row>
+      </ion-grid>
+    
+      <ion-item lines="none">
+        <ion-button color="primary" size="small" slot="end" (click)="getAuditorias('pdfLoans')">
+          Ultimos prestamos del mes
+        </ion-button>
+      </ion-item>
+      <ion-grid>PAGOS</ion-grid>
+      <ion-grid class="ion-margin">
+        <ion-row>
+          <ion-col>S.No</ion-col>
+          <ion-col>Nombre del cliente</ion-col>
+          <ion-col>Monto</ion-col>
+          <ion-col>Serial</ion-col>
+          <ion-col>Fecha de pago</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let pago of pagos; index as i">
+          <ion-col>{{ i + 1 }}</ion-col>
+          <ion-col>{{ pago.name_customer }}</ion-col>
+          <ion-col>{{ pago.amount_payment }}</ion-col>
+          <ion-col>{{ pago.serial_payment }}</ion-col>
+          <ion-col>{{ pago.date_payment }}</ion-col>
+        </ion-row>
+      </ion-grid>
+    
+      <ion-item lines="none">
+        <ion-button color="primary" size="small" slot="end" (click)="getAuditorias('pdfPayments')">
+          Ultimos pagos del mes
+        </ion-button>
+      </ion-item>
+</div>
+
+</div>
+</ion-content>

@@ -42,6 +42,10 @@ const routes: Routes = [
         loadChildren: () => import('./usuarios/usuarios.module').then(m => m.UsuriosPageModule)
       },
       {
+        path: 'reportes',
+        loadChildren: () => import('./estadistica/estadistica.module').then(m => m.EstadisticaPageModule)
+      },
+      {
         path: '**',
         redirectTo: 'inicio'
       }

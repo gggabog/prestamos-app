@@ -28,7 +28,7 @@ export class PutPedidoComponent implements OnInit {
     }
   });
 
-  clientes = [];
+  clientes: any = [];
 
   putFrom: FormGroup = this.fb.group({
     amount_cash_order: ['', [Validators.required]],

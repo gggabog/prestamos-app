@@ -69,6 +69,7 @@ export class DashboardPage implements OnInit, OnDestroy {
             { title: 'Agenda', url: '/dashboard/agenda', icon: 'calendar' },
             { title: 'Usuarios', url: '/dashboard/usuarios', icon: 'people' },
             { title: 'Auditoria', url: '/dashboard/auditoria', icon: 'footsteps' },
+            { title: 'Reportes', url: '/dashboard/reportes', icon: 'bar-chart' },
           ];
           break;
         case 'prestamista':
@@ -79,6 +80,7 @@ export class DashboardPage implements OnInit, OnDestroy {
             { title: 'Préstamos', url: '/dashboard/prestamos', icon: 'ticket' },
             { title: 'Pagos', url: '/dashboard/pagos', icon: 'cash' },
             { title: 'Agenda', url: '/dashboard/agenda', icon: 'calendar' },
+            { title: 'Reportes', url: '/dashboard/reportes', icon: 'bar-chart' },
           ];
           break;
         case 'secretaria' :

@@ -15,9 +15,13 @@ import { TruncatePipe } from './pipes/truncate.pipe';
 @NgModule({
   declarations: [AppComponent,TruncatePipe],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-    HttpClientModule, DataTablesModule,
-  SpinnerComponentModule,],
+  imports: [BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule,
+    DataTablesModule,
+    SpinnerComponentModule
+    ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
               { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true}],
   bootstrap: [AppComponent],

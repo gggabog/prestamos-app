@@ -53,6 +53,9 @@ export class ShowPagoComponent implements OnInit {
       console.log(resp);
     });
   }
+  download(id){
+    this.dbService.invoice(id, 'invoice');
+  }
   delete(){
     Swal.fire({
       title: '¿Quiere eliminar este registro?',

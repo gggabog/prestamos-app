@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://still-atoll-97164.herokuapp.com/api'
+  baseUrl: 'http://localhost:8000/api',
+  productionUrl: 'https://still-atoll-97164.herokuapp.com/api'
 };
 
 /*
