@@ -141,7 +141,7 @@ export class dashboardService {
         },
         e => { throwError(e); }
     );
-}
+  }
  public invoice(id,ruta): any{
   const mediaType = 'application/pdf';
   const url = `${this.baseUrl}/${ruta}/${id}`;
@@ -153,5 +153,38 @@ export class dashboardService {
       e => { throwError(e); }
   );
  }
+ public downloadBackUp(ruta): any {
+  const mediaType = 'application/pdf';
+  const url = `${this.baseUrl}/${ruta}`;
+  this.http.post(url, {location: 'report.pdf'}, { responseType: 'blob' }).subscribe(
+      (response) => {
+          const blob = new Blob([response], { type: mediaType });
+          console.log(ruta);
+          switch (ruta) {
+            case 'tasks/prestamos':
+              saveAs(blob, 'prestamos.csv');
+              break;
+            case 'tasks/pedidos':
+              saveAs(blob, 'pedidos.csv');
+              break;
+            case 'tasks/usuarios':
+              saveAs(blob, 'usuarios.csv');
+              break;
+            case 'tasks/agenda':
+              saveAs(blob, 'agenda.csv');
+              break;
+            case 'tasks/clientes':
+                saveAs(blob, 'clientes.csv');
+                break;
+            case 'tasks/pagos':
+                saveAs(blob, 'pagos.csv');
+                break;
+            default:
+              break;
+          }
+      },
+      e => { throwError(e); }
+  );
+}
 
 }

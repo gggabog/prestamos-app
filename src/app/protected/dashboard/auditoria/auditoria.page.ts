@@ -11,6 +11,8 @@ export class AuditoriaPage implements OnInit {
 
   public auditorias;
 
+  panelOpenState = false;
+
   constructor(private dbService: dashboardService,
     private rutaActiva: ActivatedRoute,
     private router: Router) {}
@@ -23,5 +25,10 @@ export class AuditoriaPage implements OnInit {
       this.dbService.getAll('audit')
       .subscribe(resp=>{
          this.auditorias = resp.auditorias;
-      });}
+    });}
+
+    getBackUp(nombre){
+      const ruta = 'tasks/'+nombre;
+      this.dbService.downloadBackUp(ruta);
+    }
 }

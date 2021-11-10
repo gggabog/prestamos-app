@@ -11,7 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SpinnerInterceptor } from './spinner/spinner.interceptor';
 import { TruncatePipe } from './pipes/truncate.pipe';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatExpansionModule} from '@angular/material/expansion';
 @NgModule({
   declarations: [AppComponent,TruncatePipe],
   entryComponents: [],
@@ -20,7 +21,9 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     AppRoutingModule,
     HttpClientModule,
     DataTablesModule,
-    SpinnerComponentModule
+    SpinnerComponentModule,
+    MatExpansionModule,
+    BrowserAnimationsModule
     ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
               { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true}],
