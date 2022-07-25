@@ -1,10 +1,11 @@
 <div class="bg-white dark:bg-gray-900 h-full w-full">
   <!-- top componente pagina datos principal -->
-  <ion-button class="ion-margin lg:hidden" color="light" routerLink="/dashboard/agenda" >Atrás</ion-button>
-  <div class="sm:px-7 sm:pt-7 px-4 pt-4 flex flex-col w-full border-b border-gray-200 bg-white dark:bg-gray-900 dark:text-white dark:border-gray-800 sticky top-0">
+  <ion-button class="ion-margin lg:hidden" color="light" routerLink="/dashboard/agenda">Atrás</ion-button>
+  <div
+    class="sm:px-7 sm:pt-7 px-4 pt-4 flex flex-col w-full border-b border-gray-200 bg-white dark:bg-gray-900 dark:text-white dark:border-gray-800 sticky top-0">
     <div class="flex w-full items-center">
       <div class="flex items-center text-3xl text-gray-900 dark:text-white">
-        <h3>Nota para el cliente: </h3> <p class="ml-3">{{ cliente.name_customer}}</p>
+        <p>Nota para el cliente: {{ cliente.name_customer}}</p>
       </div>
       <div class="ml-auto sm:flex items-center justify-end">
         <!-- <div class="text-right">
@@ -13,16 +14,21 @@
         </div> -->
         <ion-fab-button routerLink="/dashboard/agenda/put/{{nota.id}}" color="light" size="small">
           <ion-icon name="create-outline"></ion-icon>
-       </ion-fab-button>
+        </ion-fab-button>
+
+        <ion-fab-button (click)="download(nota.id)" color="light" size="small">
+          <ion-icon name="save-outline"></ion-icon>
+        </ion-fab-button>
 
         <ion-fab-button (click)="delete()" color="light" size="small">
           <ion-icon name="trash-outline"></ion-icon>
-       </ion-fab-button>
+        </ion-fab-button>
 
       </div>
     </div>
     <div class="flex items-center space-x-3 sm:mt-7 mt-4">
-      <a href="#" class="px-3 border-b-2 border-blue-500 text-blue-500 dark:text-white dark:border-white pb-1.5">Datos de la nota</a>
+      <a href="#" class="px-3 border-b-2 border-blue-500 text-blue-500 dark:text-white dark:border-white pb-1.5">Datos
+        de la nota</a>
     </div>
   </div>
   <!-- fin top componente pagina datos principal -->
@@ -42,9 +48,9 @@
       <ion-card-content>
         <div class="w-full text-left">
           <h1>Detalle de la nota: {{ nota.note }}</h1>
-           <h1>Cliente: {{cliente.name_customer}} </h1>
-           <h1>Préstamo #: {{prestamo.id}}</h1>
-           <h1>Fecha: {{ nota.created_at | date }}</h1>
+          <h1>Cliente: {{cliente.name_customer}} </h1>
+          <h1>Préstamo #: {{prestamo.id}}</h1>
+          <h1>Fecha: {{ nota.created_at | date }}</h1>
           <div [ngSwitch]="nota.type_note">
             <h1 *ngSwitchCase="1">Tipo: Precaucion</h1>
             <h1 *ngSwitchCase="2">Tipo: Urgente</h1>

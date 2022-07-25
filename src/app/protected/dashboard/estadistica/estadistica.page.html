@@ -3,16 +3,14 @@
     <div>
       <h2 class="text-2xl font-semibold leading-tight my-10">Reportes</h2>
     </div>
-    <div
-        class="inline-block min-w-full shadow-md rounded-lg overflow-hidden"
-      >
+    <div class="inline-block min-w-full shadow-md rounded-lg overflow-hidden">
       <ion-grid>ULTIMO PRESTAMOS DEL MES</ion-grid>
       <ion-grid class="ion-margin">
         <ion-row>
           <ion-col>S.No</ion-col>
           <ion-col>Nombre del cliente</ion-col>
           <ion-col>Monto</ion-col>
-          <ion-col>Serial</ion-col>
+          <ion-col>Tasa de interes%</ion-col>
           <ion-col>Fecha de pago</ion-col>
         </ion-row>
         <ion-row *ngFor="let prestamo of prestamos; index as i">
@@ -23,10 +21,10 @@
           <ion-col>{{ prestamo.date_start_loan }}</ion-col>
         </ion-row>
       </ion-grid>
-    
+
       <ion-item lines="none">
         <ion-button color="primary" size="small" slot="end" (click)="getAuditorias('pdfLoans')">
-           Ultimos prestamos del mes <ion-icon name="download-outline"></ion-icon>
+          Ultimos prestamos del mes <ion-icon name="download-outline"></ion-icon>
         </ion-button>
       </ion-item>
       <ion-grid>PAGOS</ion-grid>
@@ -46,13 +44,13 @@
           <ion-col>{{ pago.date_payment }}</ion-col>
         </ion-row>
       </ion-grid>
-    
+
       <ion-item lines="none">
         <ion-button color="primary" size="small" slot="end" (click)="getAuditorias('pdfPayments')">
           Ultimos pagos del mes <ion-icon name="download-outline"></ion-icon>
         </ion-button>
       </ion-item>
-</div>
+    </div>
 
-</div>
+  </div>
 </ion-content>

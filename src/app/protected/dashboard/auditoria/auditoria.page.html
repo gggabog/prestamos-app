@@ -1,83 +1,108 @@
 <ion-content>
   <div class="container mx-auto px-4 sm:px-8">
     <div>
-      <h2 class="text-2xl font-semibold leading-tight my-10">Auditorias y respaldos</h2>
+      <h2 class="text-2xl font-semibold leading-tight my-20">Auditorias y respaldos</h2>
     </div>
-    <div
-        class="inline-block min-w-full shadow-md rounded-lg overflow-hidden"
-      >
+    <div class="inline-block min-w-full shadow-md rounded-lg overflow-hidden">
       <mat-accordion class="m-4">
-        <mat-expansion-panel class="bg-gray-200 text-gray-900 border-gray-200 border-opacity-75 shadow-lg relative ring-1 ring-gray-200 focus:ring-blue-500 focus:outline-none p-4" (opened)="panelOpenState = true"
-                             (closed)="panelOpenState = false">
+        <mat-expansion-panel expanded
+          class="bg-yellow-100 text-gray-900 border-gray-200 border-opacity-75 shadow-lg relative ring-1 ring-gray-200 focus:ring-blue-500 focus:outline-none p-4"
+          (opened)="panelOpenState = true" (closed)="panelOpenState = false">
           <mat-expansion-panel-header>
             <mat-panel-title>
               RESPALDOS
             </mat-panel-title>
             <mat-panel-description>
-               {{panelOpenState ? 'Descargar respaldos:' : ''}}
+              {{panelOpenState ? 'Descargar respaldos:' : ''}}
             </mat-panel-description>
           </mat-expansion-panel-header>
           <section class="flex" class="p-4 mt-2">
             <div class="example-label">Presiona paga generar respaldo de la tabla: </div>
             <div class="flex justify-around">
-              <button (click)="getBackUp('clientes')" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 ml-2 border border-blue-700 rounded">
+              <button (click)="getBackUp('clientes')"
+                class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 ml-2 border border-blue-700 rounded">
                 Clientes
               </button>
-              <button (click)="getBackUp('pedidos')" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 ml-2 border border-blue-700 rounded">
+              <button (click)="getBackUp('pedidos')"
+                class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 ml-2 border border-blue-700 rounded">
                 Pedidos
               </button>
-              <button (click)="getBackUp('prestamos')" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 ml-2 border border-blue-700 rounded">
+              <button (click)="getBackUp('prestamos')"
+                class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 ml-2 border border-blue-700 rounded">
                 Prestamos
               </button>
-              <button (click)="getBackUp('pagos')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 ml-2 border border-blue-700 rounded">
+              <button (click)="getBackUp('pagos')"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 ml-2 border border-blue-700 rounded">
                 Pagos
               </button>
-              <button (click)="getBackUp('agenda')" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 ml-2 border border-blue-700 rounded">
+              <button (click)="getBackUp('agenda')"
+                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 ml-2 border border-blue-700 rounded">
                 Agenda
               </button>
-              <button (click)="getBackUp('usuarios')" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 ml-2 border border-blue-700 rounded">
+              <button (click)="getBackUp('usuarios')"
+                class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 ml-2 border border-blue-700 rounded">
                 Usuarios
               </button>
             </div>
           </section>
         </mat-expansion-panel>
       </mat-accordion>
-  <table class="w-full table-auto text-left min-w-full leading-normal">
-    <thead class="bg-gray-300">
-      <tr>
-        <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 mt-4">Descripción</th>
-        <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800">Usuario</th>
-        <th class="font-normal px-3 pt-0 pb-3 border-b border-gray-200 dark:border-gray-800 hidden md:table-cell">Acción</th>
-      </tr>
-    </thead>
-    <tbody class="text-gray-600 dark:text-gray-100">
-      <tr *ngFor="let auditoria of auditorias">
-        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
-          {{auditoria.description_aud}}
-        </td>
-        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
-          <div class="flex items-center">
-            {{auditoria.fk_id_user}}
-          </div>
-        </td>
-        <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
-          <div class="flex items-center">
-            <div class="sm:flex hidden flex-col">
-               {{ auditoria.action_aud }}
-            </div>
-            <button class="w-8 h-8 inline-flex items-center justify-center text-gray-400 ml-auto">
-              <svg viewBox="0 0 24 24" class="w-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="1"></circle>
-                <circle cx="19" cy="12" r="1"></circle>
-                <circle cx="5" cy="12" r="1"></circle>
-              </svg>
-            </button>
-          </div>
-        </td>
-      </tr>
+      <table class="w-full table-auto text-left min-w-full leading-normal shadow-md">
+        <thead class="bg-yellow-200">
+          <tr>
+            <th
+              class="font-normal px-3 py-2 border-b border-r rounded-tl-lg border-yellow-300 dark:border-yellow-800 mt-4">
+              Descripción
+            </th>
+            <th class="font-normal px-3 py-2 border-b border-r border-yellow-300 dark:border-yellow-800">Nombre de
+              usuario
+            </th>
+            <th class="font-normal px-3 py-2 border-b border-r border-yellow-300 dark:border-yellow-800">Email</th>
+            <th class="font-normal px-3 py-2 border-b border-r border-yellow-300 dark:border-yellow-800">Nivel</th>
+            <th
+              class="font-normal px-3 py-2 border-b border-yellow-300 rounded-tr-lg dark:border-yellow-800 hidden md:table-cell">
+              Acción</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-600 dark:text-gray-100">
+          <tr *ngFor="let auditoria of auditorias">
+            <td class="sm:p-3 py-2 px-1 border-b border-l border-gray-200 dark:border-gray-800">
+              {{auditoria.description_aud}}
+            </td>
+            <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+              <div class="flex items-center">
+                {{auditoria.name}}
+              </div>
+            </td>
+            <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+              <div class="flex items-center">
+                {{auditoria.email}}
+              </div>
+            </td>
+            <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+              <div class="flex items-center">
+                {{auditoria.level}}
+              </div>
+            </td>
+            <td class="sm:p-3 py-2 px-1 border-b border-r border-gray-200 dark:border-gray-800">
+              <div class="flex items-center">
+                <div class="sm:flex hidden flex-col">
+                  {{ auditoria.action_aud }}
+                </div>
+                <button class="w-8 h-8 inline-flex items-center justify-center text-gray-400 ml-auto">
+                  <svg viewBox="0 0 24 24" class="w-5" stroke="currentColor" stroke-width="2" fill="none"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <circle cx="19" cy="12" r="1"></circle>
+                    <circle cx="5" cy="12" r="1"></circle>
+                  </svg>
+                </button>
+              </div>
+            </td>
+          </tr>
 
-    </tbody>
-  </table>
-</div>
-</div>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </ion-content>

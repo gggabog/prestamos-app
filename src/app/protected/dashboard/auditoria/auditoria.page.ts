@@ -8,27 +8,28 @@ import { dashboardService } from '../dashboard-service.service';
   styleUrls: ['./auditoria.page.scss'],
 })
 export class AuditoriaPage implements OnInit {
-
   public auditorias;
 
-  panelOpenState = false;
+  panelOpenState = true;
 
-  constructor(private dbService: dashboardService,
+  constructor(
+    private dbService: dashboardService,
     private rutaActiva: ActivatedRoute,
-    private router: Router) {}
+    private router: Router
+  ) {}
 
-    ngOnInit() {
-      this.getAuditorias();
-    }
+  ngOnInit() {
+    this.getAuditorias();
+  }
 
-    getAuditorias(){
-      this.dbService.getAll('audit')
-      .subscribe(resp=>{
-         this.auditorias = resp.auditorias;
-    });}
+  getAuditorias() {
+    this.dbService.getAll('audit').subscribe((resp) => {
+      this.auditorias = resp.auditorias;
+    });
+  }
 
-    getBackUp(nombre){
-      const ruta = 'tasks/'+nombre;
-      this.dbService.downloadBackUp(ruta);
-    }
+  getBackUp(nombre) {
+    const ruta = 'tasks/' + nombre;
+    this.dbService.downloadBackUp(ruta);
+  }
 }
