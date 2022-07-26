@@ -1,24 +1,26 @@
-<ion-content class="flex overflow-x-hidden h-full w-full" color="light">
+<ion-content class="flex overflow-x-hidden h-full w-full" color="dimmed">
 
   <form [formGroup]="addFrom" (ngSubmit)="add()" class="ion-margin">
     <div class="flex justify-between">
-      <ion-button class="ion-margin lg:hidden" color="light" routerLink="/dashboard/agenda" >Atrás</ion-button>
+      <ion-button class="ion-margin lg:hidden bg-dimmed-dark" color="primary" routerLink="/dashboard/agenda">Atrás
+      </ion-button>
       <ion-button class="ion-margin" type="submit">
         Agregar
       </ion-button>
     </div>
 
 
-    <ion-item>
+    <ion-item color="dimmed-dark">
       <ion-label>Cliente</ion-label>
-      <ion-select formControlName="id_fk_customer" (ionChange)="changeCustomer()" okText="Seleccionar" cancelText="Cancelar">
-        <ion-select-option >Selecciona...</ion-select-option>
+      <ion-select formControlName="id_fk_customer" (ionChange)="changeCustomer()" okText="Seleccionar"
+        cancelText="Cancelar">
+        <ion-select-option>Selecciona...</ion-select-option>
         <ion-select-option *ngFor="let cliente of clientes" [value]="cliente.id">{{cliente.name_customer}}
         </ion-select-option>
       </ion-select>
     </ion-item>
 
-    <ion-item>
+    <ion-item color="dimmed-dark">
       <ion-label>Préstamo</ion-label>
       <ion-select formControlName="id_fk_loan" (change)="changeCustomer()" okText="Seleccionar" cancelText="Cancelar">
         <ion-select-option value="brown">Selecciona...</ion-select-option>
@@ -27,21 +29,20 @@
       </ion-select>
     </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Nota</ion-label>
-        <ion-input formControlName="note" ></ion-input>
-      </ion-item>
+    <ion-item color="dimmed-dark">
+      <ion-label position="floating">Nota</ion-label>
+      <ion-input formControlName="note"></ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label>Tipo</ion-label>
-        <ion-select formControlName="type_note" (change)="changeCustomer()" okText="Seleccionar" cancelText="Cancelar">
-          <ion-select-option value="brown">Selecciona...</ion-select-option>
-          <ion-select-option [value]="1">Precaucion</ion-select-option>
+    <ion-item color="dimmed-dark">
+      <ion-label>Tipo</ion-label>
+      <ion-select formControlName="type_note" (change)="changeCustomer()" okText="Seleccionar" cancelText="Cancelar">
+        <ion-select-option value="brown">Selecciona...</ion-select-option>
+        <ion-select-option [value]="1">Precaucion</ion-select-option>
         <ion-select-option [value]="2">Urgente</ion-select-option>
         <ion-select-option [value]="3">Riesgo</ion-select-option>
-        </ion-select>
-      </ion-item>
+      </ion-select>
+    </ion-item>
 
   </form>
-  </ion-content>
-
+</ion-content>

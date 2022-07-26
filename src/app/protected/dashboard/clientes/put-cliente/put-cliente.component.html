@@ -1,47 +1,47 @@
-<ion-content class="flex overflow-x-hidden h-full w-full" color="light">
+<ion-content class="flex overflow-x-hidden h-full w-full" color="dimmed">
 
   <form [formGroup]="putFrom" (ngSubmit)="put()" class="ion-margin">
 
     <div class="flex justify-between">
-      <ion-button class="ion-margin" color="light" routerLink="/dashboard/clientes/show/{{cliente}}" >Atrás</ion-button>
+      <ion-button class="ion-margin" color="light" routerLink="/dashboard/clientes/show/{{cliente}}">Atrás</ion-button>
       <ion-button class="ion-margin" type="submit">
         Actualizar
       </ion-button>
     </div>
 
-      <ion-item>
-        <ion-label position="floating">Nombre del cliente</ion-label>
-        <ion-input formControlName="name_customer" ></ion-input>
-      </ion-item>
+    <ion-item color="dimmed-dark">
+      <ion-label position="floating">Nombre del cliente</ion-label>
+      <ion-input formControlName="name_customer"></ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Cédula del cliente</ion-label>
-        <ion-input formControlName="cedula_customer" >V-</ion-input>
-      </ion-item>
+    <ion-item color="dimmed-dark">
+      <ion-label position="floating">Cédula del cliente</ion-label>
+      <ion-input formControlName="cedula_customer">V-</ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Dirección de trabajo</ion-label>
-        <ion-textarea cols="50" formControlName="address_work_customer"></ion-textarea>
-      </ion-item>
+    <ion-item color="dimmed-dark">
+      <ion-label position="floating">Dirección de trabajo</ion-label>
+      <ion-textarea cols="50" formControlName="address_work_customer"></ion-textarea>
+    </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Dirección de domicilio</ion-label>
-        <ion-textarea cols="50" formControlName="address_home_customer"></ion-textarea>
-      </ion-item>
+    <ion-item color="dimmed-dark">
+      <ion-label position="floating">Dirección de domicilio</ion-label>
+      <ion-textarea cols="50" formControlName="address_home_customer"></ion-textarea>
+    </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Dirección extra</ion-label>
-        <ion-textarea cols="50" formControlName="extra_address_customer"></ion-textarea>
-      </ion-item>
+    <ion-item color="dimmed-dark">
+      <ion-label position="floating">Dirección extra</ion-label>
+      <ion-textarea cols="50" formControlName="extra_address_customer"></ion-textarea>
+    </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Teléfono</ion-label>
-        <ion-input type="number" formControlName="cellphone_customer" >0</ion-input>
-      </ion-item>
+    <ion-item color="dimmed-dark">
+      <ion-label position="floating">Teléfono</ion-label>
+      <ion-input type="number" formControlName="cellphone_customer">0</ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Teléfono extra</ion-label>
-        <ion-input type="number" formControlName="extra_cellphone_customer" >0</ion-input>
-      </ion-item>
+    <ion-item color="dimmed-dark">
+      <ion-label position="floating">Teléfono extra</ion-label>
+      <ion-input type="number" formControlName="extra_cellphone_customer">0</ion-input>
+    </ion-item>
   </form>
-  </ion-content>
+</ion-content>

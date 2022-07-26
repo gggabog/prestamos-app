@@ -1,43 +1,44 @@
-<ion-content class="flex overflow-x-hidden h-full w-full" color="light">
+<ion-content class="flex overflow-x-hidden h-full w-full" color="dimmed">
 
-<form [formGroup]="addFrom" (ngSubmit)="add()" class="ion-margin">
+  <form [formGroup]="addFrom" (ngSubmit)="add()" class="ion-margin">
 
-  <div class="flex justify-between">
-    <ion-button class="ion-margin lg:hidden" color="light" routerLink="/dashboard/clientes" >Atrás</ion-button>
-    <ion-button class="ion-margin" type="submit">
-      Agregar
-    </ion-button>
-  </div>
+    <div class="flex justify-between">
+      <ion-button class="ion-margin lg:hidden bg-dimmed-dark" color="primary" routerLink="/dashboard/clientes">Atrás
+      </ion-button>
+      <ion-button class="ion-margin" type="submit">
+        Agregar
+      </ion-button>
+    </div>
 
-    <ion-item>
+    <ion-item color="dimmed-dark">
       <ion-label position="floating">Nombre de usuario</ion-label>
-      <ion-input formControlName="name" ></ion-input>
+      <ion-input formControlName="name"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item color="dimmed-dark">
       <ion-label position="floating">Email</ion-label>
-      <ion-input formControlName="email" ></ion-input>
+      <ion-input formControlName="email"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item color="dimmed-dark">
       <ion-label position="floating">Contraseña</ion-label>
-      <ion-input formControlName="password" ></ion-input>
+      <ion-input formControlName="password"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item color="dimmed-dark">
       <ion-label position="floating">Confirmar contraseña</ion-label>
-      <ion-input formControlName="password_confirmation" ></ion-input>
+      <ion-input formControlName="password_confirmation"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item color="dimmed-dark">
       <ion-label>Tipo</ion-label>
       <ion-select formControlName="level" (change)="changeCustomer()" okText="Seleccionar" cancelText="Cancelar">
         <ion-select-option>Selecciona...</ion-select-option>
         <ion-select-option value="prestamista">Prestamista</ion-select-option>
-      <ion-select-option value="secretaria">Secretaria</ion-select-option>
-      <ion-select-option value="admin">Admin</ion-select-option>
+        <ion-select-option value="secretaria">Secretaria</ion-select-option>
+        <ion-select-option value="admin">Admin</ion-select-option>
       </ion-select>
     </ion-item>
 
-</form>
+  </form>
 </ion-content>

@@ -6,7 +6,7 @@
     <div class="inline-block min-w-full shadow-md rounded-lg overflow-hidden">
       <mat-accordion class="m-4">
         <mat-expansion-panel expanded
-          class="bg-yellow-100 text-gray-900 border-gray-200 border-opacity-75 shadow-lg relative ring-1 ring-gray-200 focus:ring-blue-500 focus:outline-none p-4"
+          class="bg-yellow-100 text-white border-yellow-900 border-opacity-75 shadow-lg relative ring-1 ring-yellow-900 focus:ring-yellow-500 focus:outline-none p-4"
           (opened)="panelOpenState = true" (closed)="panelOpenState = false">
           <mat-expansion-panel-header>
             <mat-panel-title>
@@ -20,27 +20,27 @@
             <div class="example-label">Presiona paga generar respaldo de la tabla: </div>
             <div class="flex justify-around">
               <button (click)="getBackUp('clientes')"
-                class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 ml-2 border border-blue-700 rounded">
+                class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 ml-2 border border-yellow-700 rounded">
                 Clientes
               </button>
               <button (click)="getBackUp('pedidos')"
-                class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 ml-2 border border-blue-700 rounded">
+                class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 ml-2 border border-yellow-700 rounded">
                 Pedidos
               </button>
               <button (click)="getBackUp('prestamos')"
-                class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 ml-2 border border-blue-700 rounded">
+                class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 ml-2 border border-yellow-700 rounded">
                 Prestamos
               </button>
               <button (click)="getBackUp('pagos')"
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 ml-2 border border-blue-700 rounded">
+                class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 ml-2 border border-yellow-700 rounded">
                 Pagos
               </button>
               <button (click)="getBackUp('agenda')"
-                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 ml-2 border border-blue-700 rounded">
+                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 ml-2 border border-yellow-700 rounded">
                 Agenda
               </button>
               <button (click)="getBackUp('usuarios')"
-                class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 ml-2 border border-blue-700 rounded">
+                class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 ml-2 border border-yellow-700 rounded">
                 Usuarios
               </button>
             </div>
@@ -64,32 +64,32 @@
               Acción</th>
           </tr>
         </thead>
-        <tbody class="text-gray-600 dark:text-gray-100">
+        <tbody class="text-white dark:text-white">
           <tr *ngFor="let auditoria of auditorias">
-            <td class="sm:p-3 py-2 px-1 border-b border-l border-gray-200 dark:border-gray-800">
+            <td class="sm:p-3 py-2 px-1 border-b border-l border-yellow-900 dark:border-yellow-800">
               {{auditoria.description_aud}}
             </td>
-            <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+            <td class="sm:p-3 py-2 px-1 border-b border-yellow-900 dark:border-yellow-800">
               <div class="flex items-center">
                 {{auditoria.name}}
               </div>
             </td>
-            <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+            <td class="sm:p-3 py-2 px-1 border-b border-yellow-900 dark:border-yellow-800">
               <div class="flex items-center">
                 {{auditoria.email}}
               </div>
             </td>
-            <td class="sm:p-3 py-2 px-1 border-b border-gray-200 dark:border-gray-800">
+            <td class="sm:p-3 py-2 px-1 border-b border-yellow-900 dark:border-yellow-800">
               <div class="flex items-center">
                 {{auditoria.level}}
               </div>
             </td>
-            <td class="sm:p-3 py-2 px-1 border-b border-r border-gray-200 dark:border-gray-800">
+            <td class="sm:p-3 py-2 px-1 border-b border-r border-yellow-900 dark:border-yellow-800">
               <div class="flex items-center">
                 <div class="sm:flex hidden flex-col">
                   {{ auditoria.action_aud }}
                 </div>
-                <button class="w-8 h-8 inline-flex items-center justify-center text-gray-400 ml-auto">
+                <button class="w-8 h-8 inline-flex items-center justify-center text-white ml-auto">
                   <svg viewBox="0 0 24 24" class="w-5" stroke="currentColor" stroke-width="2" fill="none"
                     stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="12" cy="12" r="1"></circle>

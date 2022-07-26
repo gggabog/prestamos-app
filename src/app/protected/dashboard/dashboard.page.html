@@ -1,53 +1,70 @@
-<ion-app color="light">
-  <ion-split-pane contentId="main-content" color="light">
+<ion-app color="dimmed">
+  <ion-header>
+    <ion-toolbar color="dimmed-dark"
+      class="border-b border-yellow-900 rounded-br-2xl rounded-bl-2xl bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg">
+      <ion-buttons slot="start">
+        <ion-menu-button (click)="openEnd()" auto-hide="false"></ion-menu-button>
+      </ion-buttons>
+      <ion-buttons slot="center">
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <img class="max-h-8" src="/assets/img/logo.png" alt="">
+        <ion-button expand="block" class="h-8 shadow text-white ml-2" shape="round" fill="solid" color="primary"
+          (click)=" logout()">
+          <ion-icon name="exit-outline" class="mr-2"></ion-icon> Salir
+        </ion-button>
+      </ion-buttons>
 
-    <ion-menu menuId="end" class="lg:w-1/5 bg-yellow-100" contentId="main-content" type="overlay">
-      <ion-content color="light">
-        <ion-list style="padding: 0px !important;" id="inbox-list" class="bg-yellow-100 section h-full">
+      <ion-title>{{ component|titlecase }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-split-pane contentId="main-content" color="dimmed" class="mt-9">
 
-          <hr>
-          <ion-card>
+    <ion-menu menuId="end" class="lg:w-1/5" color="dimmed" contentId="main-content" type="overlay">
+      <ion-header>
+
+      </ion-header>
+      <ion-content color="dimmed">
+        <ion-list color="dark" style="padding: 0px !important; border-bottom: 0px !important;" id="inbox-list"
+          class="bg-dimmed section h-full w-full">
+
+          <div
+            class="bg-dimmed-700 py-4 border-b border-yellow-900 rounded-br-2xl rounded-bl-2xl bg-opacity-20 backdrop-blur-lg rounded drop-shadow-lg">
             <ion-card-header>
               <ion-card-subtitle>
                 <div class="flex items-center">
                   <img class="w-7 h-7 rounded-full" src="/assets/icon/user.png" alt="profile" />
-                  <ion-list-header (click)="verifica()">{{ usuario.name }}</ion-list-header>
+                  <ion-list-header class="text-white" (click)="verifica()">{{ usuario.name }}</ion-list-header>
                 </div>
               </ion-card-subtitle>
               <ion-card-title>
-                <ion-note style="margin-bottom: 2px !important;">{{ usuario.email }}</ion-note>
+                <ion-note style="margin-bottom: 2px !important;" class="text-white">{{ usuario.email }}</ion-note>
               </ion-card-title>
             </ion-card-header>
-            <hr>
-          </ion-card>
+          </div>
           <ion-menu-toggle color="gold" auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item color="light" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false"
+            <ion-item color="dimmed" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false"
               routerLinkActive="selected">
-              <ion-icon slot="start" color="gold" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-icon slot="start" color="gold" size="small" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'">
+              </ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
-          <div class="mb-5">
-            <img src="/assets/img/logo.png" alt="">
-          </div>
-          <ion-button expand="block" class="h-8 rounded-md shadow text-white " (click)="logout()">
-            <ion-icon name="arrow-undo-circle-outline" class="mr-2"></ion-icon> Salir
-          </ion-button>
+
+
         </ion-list>
 
       </ion-content>
+
     </ion-menu>
 
 
 
-    <ion-button fill="clear" color="dark" (click)="openEnd()" class="buttonOverlay lg:hidden">
+    <!-- <ion-button fill="clear" color="dark" (click)="openEnd()" class="buttonOverlay lg:hidden">
       <ion-icon slot="icon-only" name="menu"></ion-icon>
       <div class="ml-4">{{ component }}</div>
-    </ion-button>
+    </ion-button> -->
 
-
-
-
-    <ion-router-outlet id="main-content" class="mt-10 lg:mt-0"></ion-router-outlet>
+    <ion-router-outlet id="main-content" class="mt-10 lg:mt-0 bg-dimmed-dark"></ion-router-outlet>
   </ion-split-pane>
 </ion-app>

@@ -1,12 +1,12 @@
-<div class="flex overflow-x-hidden h-full w-full">
+<div class="flex overflow-x-hidden h-full w-full bg-dimmed-dark">
   <div
-    class="xl:w-72 w-full flex-shrink-0 border-r border-gray-200 dark:border-gray-800 h-full overflow-y-auto lg:block p-5"
+    class="xl:w-72 w-full flex-shrink-0 border-r border-yellow-900 dark:border-yellow-800 h-full overflow-y-auto lg:block p-5"
     [ngClass]="rla===true ? 'hidden' : ''">
-    <!-- <div class="text-xs text-gray-400 tracking-wider">USERS</div>
+    <!-- <div class="text-xs text-white tracking-wider">USERS</div>
     input busqueda
     <div class="relative mt-2">
-      <input type="text" class="pl-8 h-9 bg-transparent border border-gray-300 dark:border-gray-700 dark:text-white w-full rounded-md text-sm" placeholder="Search" />
-      <svg viewBox="0 0 24 24" class="w-4 absolute text-gray-400 top-1/2 transform translate-x-0.5 -translate-y-1/2 left-2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <input type="text" class="pl-8 h-9 bg-transparent border border-yellow-300 dark:border-yellow-700 dark:text-white w-full rounded-md text-sm" placeholder="Search" />
+      <svg viewBox="0 0 24 24" class="w-4 absolute text-white top-1/2 transform translate-x-0.5 -translate-y-1/2 left-2" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="11" cy="11" r="8"></circle>
         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
       </svg>
@@ -26,16 +26,16 @@
     <div *ngFor="let prestamo of prestamos" class="space-y-4 mt-3">
       <!-- inicio componente datos card -->
       <button routerLink="/dashboard/prestamos/show/{{prestamo.id}}" routerLinkActive #cla="routerLinkActive"
-        (click)="onClick()"
-        class="bg-white p-3 w-full flex flex-col rounded-md dark:bg-gray-800 shadow-lg relative ring-1 ring-gray-200 focus:ring-blue-500 focus:outline-none">
+        (click)="onClick()" class="bg-dimmed p-3 w-full flex flex-col rounded-md dark:bg-yellow-800 shadow-lg relative
+        ring-1 ring-yellow-900 focus:ring-yellow-500 focus:outline-none">
         <div
-          class="flex xl:flex-row flex-col items-center font-medium text-gray-900 dark:text-white pb-2 mb-2 xl:border-b border-gray-200 border-opacity-75 dark:border-gray-700 w-full">
+          class="flex xl:flex-row flex-col items-center font-medium text-white dark:text-white pb-2 mb-2 xl:border-b border-yellow-900 border-opacity-75 dark:border-yellow-700 w-full">
           <ion-icon name="alert-circle-outline" class="mr-2" size="small"></ion-icon>
           {{'numero de préstamo - '+prestamo.id}}
         </div>
         <div class="flex items-center w-full">
-          <!-- <div class="text-xs py-1 px-2 leading-none dark:bg-gray-900 bg-green-100 text-green-600 rounded-md">Sales</div> -->
-          <div class="ml-auto text-xs text-gray-500">Monto: {{prestamo.amount_loan}}</div>
+          <!-- <div class="text-xs py-1 px-2 leading-none dark:bg-yellow-900 bg-green-100 text-green-600 rounded-md">Sales</div> -->
+          <div class="ml-auto text-xs text-white">Monto: {{prestamo.amount_loan}}</div>
         </div>
       </button>
       <!-- final componente datos card -->
@@ -45,7 +45,7 @@
 
   <div class="flex overflow-x-hidden h-full w-full bg-white">
     <ion-content>
-      <ion-router-outlet></ion-router-outlet>
+      <ion-router-outlet class="bg-dimmed"></ion-router-outlet>
     </ion-content>
   </div>
   <!-- fin componente pagina datos principal -->

@@ -11,7 +11,7 @@
 
 /* Core CSS required for Ionic components to work properly */
 @import "~@ionic/angular/css/core.css";
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 /* Basic CSS for apps built with Ionic */
 @import "~@ionic/angular/css/normalize.css";
@@ -41,12 +41,31 @@
   width: 165%;
 }
 *{
-  font-family: 'Quicksand', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
 }
+
+
 :root {
-  --ion-color-gold: #F3F4F6;
+  --ion-color-primary: #FFD54F;
+  --ion-color-primary-rgb: 255, 215, 0;
+  --ion-color-primary-contrast: #212529;
+  --ion-color-primary-contrast-rgb: 0, 0, 0;
+  --ion-color-primary-shade: #212529;
+  --ion-color-primary-tint: #212529;
+}
+.ion-color-primary {
+  --ion-color-base: var(--ion-color-primary) !important;
+  --ion-color-base-rgb: var(--ion-color-primary-rgb) !important;
+  --ion-color-contrast: var(--ion-color-primary-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-primary-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-primary-shade) !important;
+  --ion-color-tint: var(--ion-color-primary-tint) !important;
+}
+
+:root {
+  --ion-color-gold: #FCD346;
   --ion-color-gold-rgb: 255, 215, 0;
-  --ion-color-gold-contrast: #000000;
+  --ion-color-gold-contrast: #ffffff;
   --ion-color-gold-contrast-rgb: 0, 0, 0;
   --ion-color-gold-shade: #F3F4F6;
   --ion-color-gold-tint: #F3F4F6;
@@ -60,8 +79,54 @@
   --ion-color-tint: var(--ion-color-gold-tint) !important;
 }
 
+.bg-dimmed{
+  background: #161A1F;
+}
+
+.bg-dimmed-dark{
+  background: #111417;
+}
+
+.bg-dimmed-700{
+  background: #191e24;
+}
+
 :root {
-  --ion-color-light: #E5E7EB;
+  --ion-color-dimmed-dark: #111417;
+  --ion-color-dimmed-dark-rgb: 255, 215, 0;
+  --ion-color-dimmed-dark-contrast: #ffffff;
+  --ion-color-dimmed-dark-contrast-rgb: 0, 0, 0;
+  --ion-color-dimmed-dark-shade: #F3F4F6;
+  --ion-color-dimmed-dark-tint: #F3F4F6;
+}
+.ion-color-dimmed-dark {
+  --ion-color-base: var(--ion-color-dimmed-dark) !important;
+  --ion-color-base-rgb: var(--ion-color-dimmed-dark-rgb) !important;
+  --ion-color-contrast: var(--ion-color-dimmed-dark-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-dimmed-dark-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-dimmed-dark-shade) !important;
+  --ion-color-tint: var(--ion-color-dimmed-dark-tint) !important;
+}
+
+:root {
+  --ion-color-dimmed: #161A1F;
+  --ion-color-dimmed-rgb: 255, 215, 0;
+  --ion-color-dimmed-contrast: #ffffff;
+  --ion-color-dimmed-contrast-rgb: 0, 0, 0;
+  --ion-color-dimmed-shade: #F3F4F6;
+  --ion-color-dimmed-tint: #F3F4F6;
+}
+.ion-color-dimmed {
+  --ion-color-base: var(--ion-color-dimmed) !important;
+  --ion-color-base-rgb: var(--ion-color-dimmed-rgb) !important;
+  --ion-color-contrast: var(--ion-color-dimmed-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-dimmed-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-dimmed-shade) !important;
+  --ion-color-tint: var(--ion-color-dimmed-tint) !important;
+}
+
+:root {
+  --ion-color-light: #FEF3C7;
   --ion-color-light-rgb: 255, 215, 0;
   --ion-color-light-contrast: #000000;
   --ion-color-light-contrast-rgb: 0, 0, 0;
@@ -101,4 +166,65 @@ button{
   justify-content: flex-end;
 }
 
+ion-alert {
+  //background color
+  .alert-wrapper.sc-ion-alert-md {
+    background-color: var(--ion-color-dimmed-dark);
+  }
+
+  // Header Text
+  .alert-title.sc-ion-alert-md {
+    font-size: 25px;
+    font-family: "AustralisProSwash-Italic";
+    color: var(--ion-color-light);
+  }
+
+  // checkbox border color
+  [aria-checked="true"].sc-ion-alert-md .alert-radio-icon.sc-ion-alert-md {
+    border-color: var(--ion-color-primary);
+  }
+
+  // checkbox or radio button color
+  .alert-radio-inner.sc-ion-alert-md {
+    background-color: var(--ion-color-primary) !important;
+  }
+
+  // wrap the text
+  .alert-radio-label.sc-ion-alert-md {
+    white-space: pre-line !important;
+    font-family: "AustralisProSwash-Italic";
+    color: var(--ion-color-light);
+    font-weight: bold;
+  }
+
+  // Checked text color
+  [aria-checked="true"].sc-ion-alert-md .alert-radio-label.sc-ion-alert-md {
+    color: var(--ion-color-light);
+  }
+  .alert-title{
+    border-color: #78350F;
+  }
+
+  // Button color
+  .alert-button-inner.sc-ion-alert-md {
+    color: var(--ion-color-light);
+    font-size: larger;
+  }
+}
+
+ion-picker>.picker-wrapper {
+  background-color: var(--ion-color-dimmed) !important;
+}
+
+.picker-opt {
+  color: #7994A2 !important;
+}
+
+.picker-opt.picker-opt-selected {
+  color: var(--ion-color-light) !important;
+}
+
+ion-datetime {
+  color: var(--ion-color-light) !important;
+}
 
